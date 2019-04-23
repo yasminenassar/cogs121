@@ -85,7 +85,7 @@ on the bottom (like Instagram), and also appear as logos rather than words.
 
 
 When you press on the magnifying class icon, you can search for a vendor
-![search2] (search2.jpg)
+![search2](search2.jpg)
 
 
 When you press on the '+' Tab, you can view which tasks you've completed

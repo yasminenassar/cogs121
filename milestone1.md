@@ -31,7 +31,7 @@ This fits the theme because we are designing for people very different than ours
 
 ### Paper Prototype #1
 
-First page shown to user
+First page shown to user is the sign in/up page.
 ![sign in](signin.jpg)
 
 
@@ -54,8 +54,11 @@ How budget will look once you enter a budget per vendor
 ![bugdet after entering line item](budget2.jpg)
 
 
-After pressing 'Vendor Search' Tag:
-Search for vendors here
+When you press on the 'Checklist' Tab, you can view which tasks you've completed
+and which tasks are remaining 
+![checklist](check1.jpg)
+
+When you press on the 'Vendor Search' tab, you can search for vendors here
 ![vendor search](vendors.jpg)
 
 
@@ -70,3 +73,32 @@ previous screen.
 
 
 ### Paper Prototype #2
+
+First page shown to user is the sign in/up page.
+![sign in](signin.jpg)
+
+
+You will then be taken to your home page, where you can view the countdown until your wedding (not
+drawn but will also include: progress bar of tasks completed). The tabs are now
+on the bottom (like Instagram), and also appear as logos rather than words. 
+![home](home2.jpg)
+
+
+When you press on the magnifying class icon, you can search for a vendor
+![search] (search2.jpg)
+
+
+When you press on the '+' Tab, you can view which tasks you've completed
+and which tasks are remaining, as well as add a task. 
+![checklist](check2.jpg)
+
+
+(not for sure a feature - will only be implemented if time permits) When you press on the Heart tab, 
+you can view your mood boards and add to them by searching for hashtags and
+saving posts. 
+![boards](board2.jpg)
+
+
+After pressing '$' tab, view your budget sheet and add to it.
+![bugdet](newbudget.jpg)
+

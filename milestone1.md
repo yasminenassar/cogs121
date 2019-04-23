@@ -28,13 +28,27 @@ This fits the theme because we are designing for people very different than ours
 
 ### Paper Prototype #1
 
-
+First page shown to user
 ![sign in](signin.jpg)
+Then, set up your profile by filling out where your wedding will take place, and
+when, among other details.
 ![make your profile](profile.jpg)
+You will then be taken to your home page, where you can view the countdown until your wedding (not
+drawn but will also include: progress bar of tasks completed)
 ![home](home.jpg)
+After pressing 'Budget' Tab:
+First view of the budget page - you'll see a pop up that indicates you should
+put in a budget for each of your vendors. 
 ![bugdet](budget.jpg)
+How budget will look once you enter a budget per vendor 
 ![bugdet after entering line item](budget2.jpg)
+After pressing 'Vendor Search' Tag:
+Search for vendors here
 ![vendor search](vendors.jpg)
+Once you press makeup artist, you'll be asked filtering questions to narrow your
+search results
 ![filters](filters.jpg)
+You'll be taken to your vendor search results once you press 'Filter' in the
+previous screen.
 ![vendor search result](searchresult.jpg)
 

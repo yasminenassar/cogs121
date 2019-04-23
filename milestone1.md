@@ -26,3 +26,15 @@ This fits the theme because we are designing for people very different than ours
 
 ## Paper Prototypes
 
+### Paper Prototype #1
+
+
+![sign in](signin.jpg)
+![make your profile](profile.jpg)
+![home](home.jpg)
+![bugdet](budget.jpg)
+![bugdet after entering line item](budget2.jpg)
+![vendor search](vendors.jpg)
+![filters](filters.jpg)
+![vendor search result](searchresult.jpg)
+

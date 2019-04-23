@@ -20,8 +20,11 @@ This fits the theme because we are designing for people very different than ours
 
 ## Storyboards
 
+### Storyboard #1
 ![Storyboard #1](story1.jpeg)
 
+
+### Storyboard #2
 ![Storyboard #2](story2.jpeg)
 
 ## Paper Prototypes

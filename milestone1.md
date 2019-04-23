@@ -87,6 +87,15 @@ on the bottom (like Instagram), and also appear as logos rather than words.
 When you press on the magnifying class icon, you can search for a vendor
 ![search2](search2.jpg)
 
+In the same way as prototype 1, once you press makeup artist, you'll be asked filtering questions to narrow your
+search results
+![filters](filters.jpg)
+
+
+You'll be taken to your vendor search results once you press 'Filter' in the
+previous screen.
+![vendor search result](searchresult.jpg)
+
 
 When you press on the '+' Tab, you can view which tasks you've completed
 and which tasks are remaining, as well as add a task. 

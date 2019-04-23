@@ -85,7 +85,7 @@ on the bottom (like Instagram), and also appear as logos rather than words.
 
 
 When you press on the magnifying class icon, you can search for a vendor
-![search] (search2.jpg)
+![search2] (search2.jpg)
 
 
 When you press on the '+' Tab, you can view which tasks you've completed
@@ -96,7 +96,7 @@ and which tasks are remaining, as well as add a task.
 (not for sure a feature - will only be implemented if time permits) When you press on the Heart tab, 
 you can view your mood boards and add to them by searching for hashtags and
 saving posts. 
-![boards](board2.jpg)
+![boards](boards.jpg)
 
 
 After pressing '$' tab, view your budget sheet and add to it.

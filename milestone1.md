@@ -84,17 +84,11 @@ on the bottom (like Instagram), and also appear as logos rather than words.
 ![home](home2.jpg)
 
 
-When you press on the magnifying class icon, you can search for a vendor
+When you press on the magnifying class icon, you can search for a vendor. In the
+same way as prototype 1, once you press makeup artist, you'll be asked the same
+filtering questions as proto 1, and you'll be shown the same layout of results
+as proto 1 as well.
 ![search2](search2.jpg)
-
-In the same way as prototype 1, once you press makeup artist, you'll be asked filtering questions to narrow your
-search results
-![filters](filters.jpg)
-
-
-You'll be taken to your vendor search results once you press 'Filter' in the
-previous screen.
-![vendor search result](searchresult.jpg)
 
 
 When you press on the '+' Tab, you can view which tasks you've completed

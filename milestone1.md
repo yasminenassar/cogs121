@@ -30,8 +30,7 @@ This fits the theme because we are designing for people very different than ours
 
 First page shown to user
 ![sign in](signin.jpg)
-Then, set up your profile by filling out where your wedding will take place, and
-when, among other details.
+Then, set up your profile by filling out where and when your wedding will take place, among other details.
 ![make your profile](profile.jpg)
 You will then be taken to your home page, where you can view the countdown until your wedding (not
 drawn but will also include: progress bar of tasks completed)

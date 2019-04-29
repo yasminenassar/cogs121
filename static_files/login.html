@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title>Weddit Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<!-- this is a comment in HTML -->
+
+</head>
+
+<body>
+  <div class="container">
+		<!-- h1 through h6 are headers. The higher the number, the smaller the header -->
+		<!-- p means paragraph -->
+		<div class="jumbotron">
+			<h1>Weddit</h1>
+			<h3>Login</h3>
+      <p><input type="text" id="user" placeholder="Email"></p>
+      <p><input type="password" id="pass" placeholder="Password"></p>
+			<p><button id="testjs" class="btn btn-primary
+      btn-lg" onclick="login()">Login</button></p>
+      <h3>Don't have an account?</h3>
+			<p><a href=createacct.html><button id="testjs" class="btn btn-primary
+      btn-lg">Create an account</button></a></p>
+		</div>
+
+  <!-- include JavaScript near the end of the HTML file -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script src="js/functionality.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>Edit Profile</title>
+
+<link href="css/style.css" rel="stylesheet">
+<script src="jquery-3.3.1.min.js"></script>
+
+
+</head>
+<body>
+  <h1>Edit Profile</h1>
+    <div class="tab">
+      <a href="index.html"><button class="tablinks" onclick="">Home</button></a>
+      <a href="boards.html"><button class="tablinks"
+      onclick="">Boards</button></a>
+      <a href="checklist.html"><button class="tablinks"
+      onclick="">Checklist</button></a>
+      <a href="search.html"><button class="tablinks" onclick="">Vendor
+      Search</button></a>
+     <a href="budget.html"><button class="tablinks"
+     onclick="">Budget</button></a>
+     <a href="profile.html"><button class="tablinks"
+     onclick="">Edit Profile</button></a>
+     <a href="login.html"><button class="tablinks"
+     onclick="">Sign Out</button></a>
+    </div>
+    <div class="jumbotron">
+      <p><input type="text" id="brideName" placeholder="Bride's Name"></p>
+      <p><input type="text" id="groomName" placeholder="Groom's Name"></p>
+      <p><input type="text" id="venue" placeholder="Venue"></p>
+      <p><input type="text" id="date" placeholder="Date of Wedding"></p>
+      <p><input type="text" id="budget" placeholder="Total Wedding Budget"></p>
+			<p><button id="create" class="btn btn-primary
+      btn-lg" onclick="saveProfile()">Save</button></p>
+		</div>
+
+    <script src="js/functionality.js"></script>
+</body>
+</html>

@@ -1,7 +1,3 @@
-$(document).ready(function() {
-  console.log("are u ready");
-})
-
 
 function login() {
   var user = document.getElementById("user").value;
@@ -14,5 +10,8 @@ function createAccount() {
   //var user = document.getElementById("user").value;
   //var pass = document.getElementById("pass").value;
   location.replace("profile.html");
-
 }
+
+function initializePhoto(){
+}
+

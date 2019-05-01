@@ -3,7 +3,8 @@
 <title>Home Page</title>
 
 <link href="css/style.css" rel="stylesheet">
-<script src="jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<!--<script src="jquery-3.3.1.min.js"></script>-->
 
 
 </head>
@@ -25,10 +26,18 @@
      onclick="">Sign Out</button></a>
 
     </div>
-    <img id="couple" src="pics/couple.jpeg" style="width:700px;height:400px;"></img>
+    <img id="couple" src="pics/couple1.jpeg" style="width:700px;height:400px;"></img>
     <h1>Chelsea & Brad</h2>
     <h3>October 12, 2019 - San Francisco, CA</h2>
     <h3>167 days left until the Wedding!</h2>
     <script src="js/functionality.js"></script>
+    <script type="text/javascript"> 
+
+    $(document).ready(() => {
+      console.log("ARE U READY");
+      initializePhoto();
+    });
+
+    </script>
 </body>
 </html>

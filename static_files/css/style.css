@@ -265,6 +265,11 @@ input[type='checkbox'] {
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
+
+* {
+  box-sizing: border-box;
+}
+
 #myInput{
     background-image: url('/css/searchicon.png');
     background-position: 10px 12px;
@@ -273,7 +278,6 @@ input[type='checkbox'] {
     font-size: 16px; 
     padding: 12px 20px 12px 40px;
     border: 1px solid #ddd;
-
 }
 
 #myUL{
@@ -283,7 +287,7 @@ input[type='checkbox'] {
 
 }
 
-#myUL{
+#myUL li {
      border: 1px solid #ddd;
      margin-top: -1px; 
      background-color: #f6f6f6;
@@ -298,7 +302,6 @@ input[type='checkbox'] {
 #myUL:hover {
     visibility: visible;
     cursor:pointer;  
-    background-color: #eee;
     color:pink;
 }
 

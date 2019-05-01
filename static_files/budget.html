@@ -5,6 +5,23 @@
 <link href="css/style.css" rel="stylesheet">
 <script src="jquery-3.3.1.min.js"></script>
 
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #BB8FCE;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #BB8FCE;
+}
+</style>
 
 </head>
 <body>
@@ -24,6 +41,30 @@
      <a href="login.html"><button class="tablinks"
      onclick="">Sign Out</button></a>
     </div>
+    <p></p>
+    <p></p>
+    <p><button id="addExpense" class="btn btn-primary
+      btn-lg" onclick="addExpense()">Add Expense</button></p>
+
+    <!--<h2>HTML Table</h2>-->
+
+<table>
+  <tr>
+    <th>Vendor</th>
+    <th>Budget</th>
+    <th>Actual Cost</th>
+  </tr>
+  <tr>
+    <td>Makeup Artist</td>
+    <td>$1200</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Hair Stylist</td>
+    <td>$1000</td>
+    <td>$950</td>
+  </tr>
+ </table>
     <script src="js/functionality.js"></script>
 </body>
 </html>

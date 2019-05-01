@@ -20,9 +20,8 @@ app.use(express.static('static_files'));
 // this script restarts. however, as long as the script is running, this
 // database can be modified at will.
 const fakeDatabase = {
-  'Philip': {job: 'professor', pet: 'cat.jpg'},
-  'John': {job: 'student',   pet: 'dog.jpg'},
-  'Carol': {job: 'engineer',  pet: 'bear.jpg'}
+  'chelsea@a.edu': {img: 'pics/couple1.jpeg'},
+  'angie@a.edu': {img: 'pics/couple2.jpeg'}
 };
 
 

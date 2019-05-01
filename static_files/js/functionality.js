@@ -1,8 +1,10 @@
 
 function login() {
-  var user = document.getElementById("user").value;
-  var pass = document.getElementById("pass").value;
+  const user = document.getElementById("user").value;
+  const pass = document.getElementById("pass").value;
   location.replace("index.html");
+  //console.log(curUser);
+  localStorage.setItem('curUser', user);
 }
 
 function createAccount() {
@@ -12,10 +14,7 @@ function createAccount() {
   location.replace("profile.html");
 }
 
-function initializePhoto(){
-}
-
- function searchFunc() {
+function searchFunc() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();

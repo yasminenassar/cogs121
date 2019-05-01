@@ -32,6 +32,9 @@ and the budget page (budget.html).
 ![Login Page](static_files/pics/login.png)
 Write comment here about login
 
+![Create Account Page](static_files/pics/create.png)
+Write comment here about creating account
+
 ![Home Page](static_files/pics/home.png)
 Write comment here about home page
 

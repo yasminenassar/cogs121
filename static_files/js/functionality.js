@@ -16,7 +16,7 @@ function initializePhoto(){
 }
 
 function myFunction() {
-  var, input, filter, ul, li, a, i, txtValue;
+  var input, filter, ul, li, a, i, txtValue;
   input = document.getElementById('myInput');
   filter = input.value.toUpperCase();
   ul = document.getElementById("myUL");

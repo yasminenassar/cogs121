@@ -15,16 +15,8 @@ function createAccount() {
 function initializePhoto(){
 }
 
-function myFunction() {
-  var, input, filter, ul, li, a, i, txtValue;
-  input = document.getElementById('myInput');
-  filter = input.value.toUpperCase();
-  ul = document.getElementById("myUL");
-  li = ul.getElementsByTagName('li');
-
-<<<<<<< HEAD
  function searchFunc() {
-    var, input, filter, ul, li, a, i, txtValue;
+    var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     ul = document.getElementById("myUL");
@@ -41,22 +33,6 @@ function myFunction() {
         {
             li[i].style.display = "none";
         }
-            
-=======
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
->>>>>>> 090d831c921faeb6a7ea5b3ba2ce0cd8de52824c
-
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    }
-    else
-    {
-      li[i].style.display = "none";
-    }
-
-
   }
 
 }

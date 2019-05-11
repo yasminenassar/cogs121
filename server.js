@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-
+const ig = require('instagram-node').instagram();
 // put all of your static files (e.g., HTML, CSS, JS, JPG) in the static_files/
 // sub-directory, and the server will serve them from there. e.g.,:
 //
@@ -12,7 +12,13 @@ const app = express();
 // Learn more: http://expressjs.com/en/starter/static-files.html
 app.use(express.static('static_files'));
 
+ig.use({
+    client_id: 'd24f6b6b5992431fb90108cb528c5533',
+    client_secret: '5a575e21b176441781299c65455a6a6a'
+});
 
+const redirectUri = 'http://localhost:3000/handleAuth';
+var accessToken = "";
 // simulates a database in memory, to make this example simple and
 // self-contained (so that you don't need to set up a separate database).
 // note that a real database will save its data to the hard drive so
@@ -31,6 +37,24 @@ const fakeDatabase = {
 // Express - Hello world: http://expressjs.com/en/starter/hello-world.html
 // Express - basic routing: http://expressjs.com/en/starter/basic-routing.html
 // Express - routing: https://expressjs.com/en/guide/routing.html
+
+app.get('/authorize', function(req, res){
+    // set the scope of our application to be able to access likes and public content
+    res.redirect(ig.get_authorization_url(redirectUri) );
+});
+
+app.get('/handleAuth', function(req, res){
+    console.log("are u in handleAuth");
+    //retrieves the code that was passed along as a query to the '/handleAuth' route and uses this code to construct an access token
+    ig.authorize_user(req.query.code, redirectUri, function(err, result){
+        if(err) res.send( err );
+    // store this access_token in a global variable called accessToken
+        accessToken = result.access_token;
+        console.log(accessToken);
+    // After getting the access_token redirect to the '/' route
+        res.redirect('/');
+    });
+})
 
 
 // GET a list of all usernames
@@ -60,6 +84,26 @@ app.get('/users/:userid', (req, res) => {
     res.send({}); // failed, so return an empty object instead of undefined
   }
 });
+
+/*app.get('/handleAuth', function(req, res){
+  const 
+  });
+//const code = req.url.split('code=')[1];
+app.post({form: {'client_id': 'd24f6b6b5992431fb90108cb528c5533',
+                   'client_secret': '5a575e21b176441781299c65455a6a6a',
+                   'grant_type' : 'authorization_code',
+                   'redirect_uri' : 'https://localhost:3000',
+                   'code' : code},
+                   url: 'https://api.instagram.com/oauth/access_token'}, 
+                function (err, res, body) {
+                  if(err){
+                    console.log("Error in Post: ", err);
+                  }
+                  else{
+                    console.log(JSON.parse(body));
+                  }
+
+});*/
 
 // start the server at URL: http://localhost:3000/
 app.listen(3000, () => {

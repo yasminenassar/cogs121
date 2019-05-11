@@ -2,8 +2,9 @@
 function login() {
   const user = document.getElementById("user").value;
   const pass = document.getElementById("pass").value;
-  location.replace("index.html");
+ // location.replace("https://api.instagram.com/oauth/authorize/?client_id=d24f6b6b5992431fb90108cb528c5533&redirect_uri=http://localhost:3000&response_type=code");
   //console.log(curUser);
+  location.replace('/authorize');
   localStorage.setItem('curUser', user);
 }
 

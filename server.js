@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const ig = require('instagram-node').instagram();
+
 // put all of your static files (e.g., HTML, CSS, JS, JPG) in the static_files/
 // sub-directory, and the server will serve them from there. e.g.,:
 //
@@ -27,9 +28,9 @@ var accessToken = "";
 // database can be modified at will.
 const fakeDatabase = {
   'chelsea@a.com': {img: 'pics/couple1.jpeg', bride: "Chelsea", groom: "Brad",
-                    venue: "San Francisco, CA", date: "October 12, 2019" },
+                    venue: "San Francisco", date: "October 12, 2019" },
   'angie@a.com': {img: 'pics/couple2.jpeg', bride: "Angie", groom: "Derek",
-                    venue: "Chula Vista, CA", date: "August 16, 2019"}
+                    venue: "Chula Vista", date: "August 16, 2019"}
 };
 
 
@@ -50,8 +51,9 @@ app.get('/handleAuth', function(req, res){
         if(err) res.send( err );
     // store this access_token in a global variable called accessToken
         accessToken = result.access_token;
+        //localStorage.setItem('accessToken', accessToken);
         console.log(accessToken);
-    // After getting the access_token redirect to the '/' route
+        //res.render('static_files/search.html', {'accessToken': accessToken});
         res.redirect('/');
     });
 })

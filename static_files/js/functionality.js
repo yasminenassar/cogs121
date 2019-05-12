@@ -16,6 +16,7 @@ function createAccount() {
 }
 
 function searchFunc() {
+  console.log("SEARCHING");
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();

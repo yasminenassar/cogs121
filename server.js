@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const ig = require('instagram-node').instagram();
+
 // put all of your static files (e.g., HTML, CSS, JS, JPG) in the static_files/
 // sub-directory, and the server will serve them from there. e.g.,:
 //
@@ -50,8 +51,9 @@ app.get('/handleAuth', function(req, res){
         if(err) res.send( err );
     // store this access_token in a global variable called accessToken
         accessToken = result.access_token;
+        //localStorage.setItem('accessToken', accessToken);
         console.log(accessToken);
-    // After getting the access_token redirect to the '/' route
+        //res.render('static_files/search.html', {'accessToken': accessToken});
         res.redirect('/');
     });
 })

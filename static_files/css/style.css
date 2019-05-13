@@ -13,7 +13,12 @@
    the CSS to the page. feel free to remove it once the link is working. */
 body {
      padding: 10px;
+<<<<<<< HEAD
       background-color:#AAD6F2;
+=======
+		 /*background-color:#EAD1DCFF;*/
+      background-color:#AAD6F2
+>>>>>>> 3e5810d44b00f67eb8ef9a66d412432cf132a216
 }
 
 .jumbotron {
@@ -281,7 +286,7 @@ input[type='checkbox'] {
 .dropbtn {
   background-color: #76A8C8;
   color: white;
-  padding: 16px;
+  padding: 30px;
   font-size: 16px;
   border: none;
 }
@@ -376,3 +381,37 @@ text-align: center;
 header{display:inline-block; font-size:14px;}
 span{padding-left:20px}
 a{color:#336699;}
+
+
+.tab {
+	width: 100%;
+	background-color: #76A8C8;
+	overflow: auto;
+}
+
+.tab a{
+	float: left;
+ 	padding: 12px;
+  	color: white;
+	text-decoration: none;
+  	font-size: 17px;
+	width: 16.66%;
+	text-align: center;
+}
+
+ .tab a:hover{
+  background-color: #C8D2D8;
+}
+
+ .tab a.active{
+  background-color: #4CAF50;
+}
+
+ @media screen and (max-width: 500px) {
+  .tab a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}

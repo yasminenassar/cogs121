@@ -31,7 +31,9 @@ const fakeDatabase = {
   'chelsea@a.com': {img: 'pics/couple1.jpeg', bride: "Chelsea", groom: "Brad",
                     venue: "San Francisco, CA", date: "October 12, 2019" },
   'angie@a.com': {img: 'pics/couple2.jpeg', bride: "Angie", groom: "Derek",
-                    venue: "Chula Vista, CA", date: "August 16, 2019"}
+                    venue: "Chula Vista, CA", date: "August 16, 2019"},
+  'emily@a.com': {img: 'pics/couple3.jpeg', bride: "Emily", groom: "Mike",
+                    venue: "Atlanta, GA", date: "October 12, 2019" },
 };
 
 
@@ -75,9 +77,6 @@ app.get('/users', (req, res) => {
 });
 
 
-
-
-
 // GET profile data for a user
 //
 // To test, open these URLs in your browser:
@@ -94,8 +93,6 @@ app.get('/users/:userid', (req, res) => {
     res.send({}); // failed, so return an empty object instead of undefined
   }
 });
-
-
 
 
 // start the server at URL: http://localhost:3000/

@@ -1,4 +1,48 @@
+$(document).ready(function() {
+    initializePage();
+      console.log("ARE U READY");
+      const curUser = localStorage.getItem('curUser');
+  console.log(curUser);
 
+  const reqURL = 'users/' + curUser; 
+  console.log("requesting from", reqURL);
+
+  $.ajax({
+    url: reqURL,
+    type: 'GET',
+    dataType: 'json',
+    success: (data) => {
+      console.log('got some data ', data);
+      if(data.bride){
+         const coupleName = data.bride + ' & ' + data.groom;
+         const dateVenue = data.date + ' - ' + data.venue;
+         console.log(coupleName);
+         console.log(dateVenue);
+         // lol countdown??? 
+         const image = data.img;
+         console.log(image);
+         $('#names').html(coupleName);
+         $('#dateVenue').html(dateVenue);
+         $('#couple').attr('src', image).attr('width', '300px');
+      }
+      else{
+        console.log("boi this better not print");
+         $('#couple').attr('src', '');
+         $('#names').html("No couple found - log in!");
+         $('#dateVenue').html('');
+
+        // inputted user that doesn't exist??
+      }
+    }
+
+    });
+})
+
+function initializePage() {
+  if(!localStorage.getItem('curUser') && location.href.includes("index.html")){
+    location.replace('login.html');
+  }
+}
 function login() {
   const user = document.getElementById("user").value;
   const pass = document.getElementById("pass").value;
@@ -124,5 +168,7 @@ function search(filter){
     
 }
 
-
+function signOut() {
+  localStorage.removeItem('curUser');
+}
 

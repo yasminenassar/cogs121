@@ -41,14 +41,15 @@ body {
      text-align: center;
 }
 
+/* This changes the images that are in search results*/
 .vendor_img {
-  width: 100px;
+  width: 150px;
 }
 
-/*.vendor p {
-  color:white;
-  text-decoration: none;
-}*/
+/* */
+.vendor a {
+}
+
 .small-img {
   border-width: 100000px;
 }

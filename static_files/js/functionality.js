@@ -49,7 +49,6 @@ function search(filter){
     var hashtag =""; 
     var venue = "";
 
-    console.log("WE  IS  HERERERERERE", filter);
     $.ajax({
     url: reqURL,
     type: 'GET',
@@ -74,21 +73,35 @@ function search(filter){
     }
     }).then(function () {
         console.log("in the then");
+        const reqSearchURL = 'search/' + filter + '/' + venue ;
         $.ajax({
-	        url: 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent',
-	        dataType: 'jsonp',
-	        type: 'GET',
-	        data: {access_token: token, count: 5},
-	        success: function(data){
-		        console.log(data);
-		        for(x in data.data){
-			        $('myUL').append('<li><img src="'+data.data[x].images.standard_resolution.url+'"></li>');  
-		        }
-	        },
-	        error: function(data){
-		        console.log(data);
-	        }
-       });
+          url: reqSearchURL,
+          type: 'GET',
+          dataType: 'json',
+          success: (data) => {
+            var div = $('#searchResults');
+            div.html("");
+            console.log('got some data ', data);
+            data.forEach(vendor => {
+              const name = vendor.name;
+              const image = vendor.image_url;
+              const img = document.createElement("img");
+              const url = vendor.url;
+              const price = vendor.price;
+              img.src = image;
+              img.className = 'vendor_img';
+              var vendorDiv = "<div class=" + "\"vendor\">" 
+              + "<p><a href=" + "\"" + url + "\"</a>" +  
+              name + "</p>" + 
+              "</div>";
+              console.log(vendorDiv);
+              div.append(vendorDiv);
+              div.append(img);
+            });
+            
+              
+          }
+        });
     });
     
 }

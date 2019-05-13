@@ -41,6 +41,14 @@ body {
      text-align: center;
 }
 
+.vendor_img {
+  width: 100px;
+}
+
+/*.vendor p {
+  color:white;
+  text-decoration: none;
+}*/
 .small-img {
   border-width: 100000px;
 }

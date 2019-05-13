@@ -40,10 +40,6 @@ const fakeDatabase = {
 // Express - basic routing: http://expressjs.com/en/starter/basic-routing.html
 // Express - routing: https://expressjs.com/en/guide/routing.html
 
-app.get('/authorize', function(req, res){
-    // set the scope of our application to be able to access likes and public content
-    res.redirect(ig.get_authorization_url(redirectUri) );
-});
 
 app.get('/search/:term/:loc', (req, res) => {
   const term = req.params.term;
@@ -64,34 +60,8 @@ app.get('/search/:term/:loc', (req, res) => {
       console.log(e);
     });
   
-  /*const URL = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent?access_token=' + accessToken + "&scope=public_content";
-  console.log("url: ", URL);
-  axios.get(URL , {
-    params: {
-      access_token: accessToken
-    }
-  }).then(response => {
-      console.log("response from insta" + response.data);
-      //res.send(response);
-  }).catch(error => {
-    console.log("Error" + error);
-  });*/
 
 });
-
-app.get('/handleAuth', function(req, res){
-    console.log("are u in handleAuth");
-    //retrieves the code that was passed along as a query to the '/handleAuth' route and uses this code to construct an access token
-    ig.authorize_user(req.query.code, redirectUri, function(err, result){
-        if(err) res.send( err );
-    // store this access_token in a global variable called accessToken
-        accessToken = result.access_token;
-        //localStorage.setItem('accessToken', accessToken);
-        console.log(accessToken);
-        //res.render('static_files/search.html', {'accessToken': accessToken});
-        res.redirect('/');
-    });
-})
 
 
 // GET a list of all usernames
@@ -122,25 +92,6 @@ app.get('/users/:userid', (req, res) => {
   }
 });
 
-/*app.get('/handleAuth', function(req, res){
-  const 
-  });
-//const code = req.url.split('code=')[1];
-app.post({form: {'client_id': 'd24f6b6b5992431fb90108cb528c5533',
-                   'client_secret': '5a575e21b176441781299c65455a6a6a',
-                   'grant_type' : 'authorization_code',
-                   'redirect_uri' : 'https://localhost:3000',
-                   'code' : code},
-                   url: 'https://api.instagram.com/oauth/access_token'}, 
-                function (err, res, body) {
-                  if(err){
-                    console.log("Error in Post: ", err);
-                  }
-                  else{
-                    console.log(JSON.parse(body));
-                  }
-
-});*/
 
 // start the server at URL: http://localhost:3000/
 app.listen(3000, () => {

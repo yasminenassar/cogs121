@@ -9,18 +9,18 @@
 
 </head>
 <body>
-  <h1>Vendor Search</h1>
+  <h1><i><p style = "text-align:center;"> Vendor Search</i></p> </h1>
     <div class="tab">
-      <a href="index.html"><button class="tablinks" onclick="">Home</button></a>
+      <a href="index.html"><class="tablinks" onclick="">Home</button></a>
       <!--<a href="boards.html"><button class="tablinks"
       onclick="">Boards</button></a>-->
-      <a href="checklist.html"><button class="tablinks"
+      <a href="checklist.html"><class="tablinks"
       onclick="">Checklist</button></a>
-      <a href="search.html"><button class="tablinks" onclick="">Vendor
+      <a href="search.html"><class="tablinks" onclick="">Vendor
       Search</button></a>
-     <a href="budget.html"><button class="tablinks"
+     <a href="budget.html"><class="tablinks"
      onclick="">Budget</button></a>
-     <a href="profile.html"><button class="tablinks"
+     <a href="profile.html"><class="tablinks"
      onclick="">Edit Profile</button></a>
      <a href="login.html"><button class="tablinks"
      onclick="signOut()">Sign Out</button></a>
@@ -30,9 +30,23 @@
         <li><button onclick=search("wedding%20makeup%20artist")>Makeup Artist</button></li>
         <li><button onclick=search("wedding%20photographer")>Photographer</button></li> 
     </ul>
+    </div>
+    <div class="dropdown"> 
+    <button class="dropbtn">Vendors</button>
+        <div class="dropdown-content">
+        <button type="button" class="block"  onclick=search("wedding%20makeup%20artist")>Makeup Artist</button>
+        <button type="button" class="block" onclick=search("wedding%20photographer")>Photographer</button>
+        </div>
+    </div>
+>>>>>>> 951809f3bd19ca613f1bc78935451dd26e35720b
     <div id=searchResults></div>
     <script src="js/functionality.js">
 
     </script>
+    <script>
+       var access = "<%= accessToken %>";
+       console.log("in search, here's access", access);
+    </script>
+
 </body>
 </html>

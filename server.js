@@ -53,7 +53,8 @@ app.get('/handleAuth', function(req, res){
         accessToken = result.access_token;
         //localStorage.setItem('accessToken', accessToken);
         console.log(accessToken);
-        //res.render('static_files/search.html', {'accessToken': accessToken});
+        
+        res.render('search', {'accessToken': accessToken});
         res.redirect('/');
     });
 })
@@ -68,6 +69,9 @@ app.get('/users', (req, res) => {
   console.log('allUsernames is:', allUsernames);
   res.send(allUsernames);
 });
+
+
+
 
 
 // GET profile data for a user
@@ -87,7 +91,9 @@ app.get('/users/:userid', (req, res) => {
   }
 });
 
-app.get('/handleAuth', function(req, res){
+
+
+/*app.get('/handleAuth', function(req, res){
   const 
   });
 //const code = req.url.split('code=')[1];
@@ -105,7 +111,7 @@ app.post({form: {'client_id': 'd24f6b6b5992431fb90108cb528c5533',
                     console.log(JSON.parse(body));
                   }
 
-});
+});*/
 
 // start the server at URL: http://localhost:3000/
 app.listen(3000, () => {

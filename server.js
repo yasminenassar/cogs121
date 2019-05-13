@@ -31,7 +31,9 @@ const fakeDatabase = {
   'chelsea@a.com': {img: 'pics/couple1.jpeg', bride: "Chelsea", groom: "Brad",
                     venue: "San Francisco, CA", date: "October 12, 2019" },
   'angie@a.com': {img: 'pics/couple2.jpeg', bride: "Angie", groom: "Derek",
-                    venue: "Chula Vista, CA", date: "August 16, 2019"}
+                    venue: "Chula Vista, CA", date: "August 16, 2019"},
+  'emily@a.com': {img: 'pics/couple3.jpeg', bride: "Emily", groom: "Mike",
+                    venue: "Atlanta, GA", date: "October 12, 2019" },
 };
 
 

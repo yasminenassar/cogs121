@@ -24,12 +24,14 @@
      onclick="">Edit Profile</button></a>
      <a href="login.html"><button class="tablinks"
      onclick="">Sign Out</button></a>
-    </div> 
-    <input type="text" id="myInput"  placeholder="Search.." title="Type in vendor">
-    <ul id="myUL">
-        <li><button onclick=search("wedding%20makeup%20artist")>Makeup Artist</button></li>
-        <li><button onclick=search("wedding%20photographer")>Photographer</button></li> 
-    </ul>
+    </div>
+    <div class="dropdown"> 
+    <button class="dropbtn">Vendors</button>
+        <div class="dropdown-content">
+        <button type="button" class="block"  onclick=search("wedding%20makeup%20artist")>Makeup Artist</button>
+        <button type="button" class="block" onclick=search("wedding%20photographer")>Photographer</button>
+        </div>
+    </div>
     <div id=searchResults></div>
     <script src="js/functionality.js">
 

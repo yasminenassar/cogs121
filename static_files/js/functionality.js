@@ -82,21 +82,39 @@ function search(filter){
             var div = $('#searchResults');
             div.html("");
             console.log('got some data ', data);
+            var i = 0;
             data.forEach(vendor => {
               const name = vendor.name;
               const image = vendor.image_url;
               const img = document.createElement("img");
               const url = vendor.url;
               const price = vendor.price;
+              const rating = vendor.rating;
+              const rateImg = document.createElement("img");
+              rateImg.setAttribute("src", "ratings/" + rating + ".png");
+              var a = document.createElement('a');
+              var linkText = document.createTextNode(name);
+              a.appendChild(linkText);
+              //a.title = "my title text";
+              a.href = url;
               img.src = image;
               img.className = 'vendor_img';
-              var vendorDiv = "<div class=" + "\"vendor\">" 
-              + "<p><a href=" + "\"" + url + "\"</a>" +  
-              name + "</p>" + 
-              "</div>";
+              var vendorDiv = document.createElement('div');
+              vendorDiv.className = 'vendor';
+              vendorDiv.append(a);
+              var priceP = document.createElement('p');
+              var node;
+              if(price){
+                node = document.createTextNode(price);
+                priceP.appendChild(node);
+              }
+
+              vendorDiv.append(rateImg);
+              vendorDiv.append(priceP);
+              vendorDiv.append(img);
               console.log(vendorDiv);
               div.append(vendorDiv);
-              div.append(img);
+              div.append("<p> </p>");
             });
             
               

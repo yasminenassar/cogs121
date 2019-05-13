@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
+const yelp = require('yelp-fusion');
+const apiKey = 'grXAywzfZVFDEfkdmjZY5XtYdcI5EdV_FY8eCImCYPDB16BIIR3GJt55f7bTiqTXm3xFx1porLG7sQQHMRMt_yO_JoLk2oGprROCzBr0TOnotEW1WYTksKU4IaXYXHYx';
+const client = yelp.client(apiKey);
 const ig = require('instagram-node').instagram();
+//const axios = require('axios');
 
 // put all of your static files (e.g., HTML, CSS, JS, JPG) in the static_files/
 // sub-directory, and the server will serve them from there. e.g.,:
@@ -13,10 +17,7 @@ const ig = require('instagram-node').instagram();
 // Learn more: http://expressjs.com/en/starter/static-files.html
 app.use(express.static('static_files'));
 
-ig.use({
-    client_id: 'd24f6b6b5992431fb90108cb528c5533',
-    client_secret: '5a575e21b176441781299c65455a6a6a'
-});
+
 
 const redirectUri = 'http://localhost:3000/handleAuth';
 var accessToken = "";
@@ -28,9 +29,9 @@ var accessToken = "";
 // database can be modified at will.
 const fakeDatabase = {
   'chelsea@a.com': {img: 'pics/couple1.jpeg', bride: "Chelsea", groom: "Brad",
-                    venue: "San Francisco", date: "October 12, 2019" },
+                    venue: "San Francisco, CA", date: "October 12, 2019" },
   'angie@a.com': {img: 'pics/couple2.jpeg', bride: "Angie", groom: "Derek",
-                    venue: "Chula Vista", date: "August 16, 2019"}
+                    venue: "Chula Vista, CA", date: "August 16, 2019"}
 };
 
 
@@ -42,6 +43,40 @@ const fakeDatabase = {
 app.get('/authorize', function(req, res){
     // set the scope of our application to be able to access likes and public content
     res.redirect(ig.get_authorization_url(redirectUri) );
+});
+
+app.get('/search/:term/:loc', (req, res) => {
+  const term = req.params.term;
+  const loc = req.params.loc;
+  console.log("here is the term: ", term, "and loc: " , loc);
+  const searchReq = {
+    term: term,
+    location: loc
+  };
+
+  client.search(searchReq).then(response => {
+    console.log("response: " , response);
+    const results = response.jsonBody.businesses;
+    const prettyJson = JSON.stringify(results, null, 4);
+    console.log(prettyJson);
+    res.send(prettyJson);
+  }).catch(e => {
+      console.log(e);
+    });
+  
+  /*const URL = 'https://api.instagram.com/v1/tags/' + hashtag + '/media/recent?access_token=' + accessToken + "&scope=public_content";
+  console.log("url: ", URL);
+  axios.get(URL , {
+    params: {
+      access_token: accessToken
+    }
+  }).then(response => {
+      console.log("response from insta" + response.data);
+      //res.send(response);
+  }).catch(error => {
+    console.log("Error" + error);
+  });*/
+
 });
 
 app.get('/handleAuth', function(req, res){
@@ -87,7 +122,7 @@ app.get('/users/:userid', (req, res) => {
   }
 });
 
-app.get('/handleAuth', function(req, res){
+/*app.get('/handleAuth', function(req, res){
   const 
   });
 //const code = req.url.split('code=')[1];
@@ -105,7 +140,7 @@ app.post({form: {'client_id': 'd24f6b6b5992431fb90108cb528c5533',
                     console.log(JSON.parse(body));
                   }
 
-});
+});*/
 
 // start the server at URL: http://localhost:3000/
 app.listen(3000, () => {

@@ -4,7 +4,7 @@ function login() {
   const pass = document.getElementById("pass").value;
  // location.replace("https://api.instagram.com/oauth/authorize/?client_id=d24f6b6b5992431fb90108cb528c5533&redirect_uri=http://localhost:3000&response_type=code");
   //console.log(curUser);
-  location.replace('/authorize');
+  location.replace('/');
   localStorage.setItem('curUser', user);
 }
 

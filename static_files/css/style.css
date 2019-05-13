@@ -12,9 +12,8 @@
 /* this style exists to make it obvious that you've successfully linked
    the CSS to the page. feel free to remove it once the link is working. */
 body {
-     
      padding: 10px;
-		 background-color:#AAD6F2;
+      background-color:#AAD6F2;
 }
 
 .jumbotron {
@@ -41,15 +40,14 @@ body {
      text-align: center;
 }
 
-/* This changes the images that are in search results*/
 .vendor_img {
-  width: 150px;
+  width: 100px;
 }
 
-/* */
-.vendor a {
-}
-
+/*.vendor p {
+  color:white;
+  text-decoration: none;
+}*/
 .small-img {
   border-width: 100000px;
 }
@@ -279,99 +277,75 @@ input[type='checkbox'] {
   box-sizing: border-box;
 }
 
-#myInput{
-    background-image: url('/css/searchicon.png');
-    background-position: 10px 12px;
-    background-repeat: no-repeat;
-    width: 50%;
-    font-size: 16px; 
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-}
 
-#myUL{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-}
-
-#myUL li {
-     border: 1px solid #ddd;
-     margin-top: -1px; 
-     background-color: #f6f6f6;
-     width: 48%;
-     padding: 12px;
-     text-decoration: none;
-     font-size: 18px;
-     color: black;
-     display: block;
-}
-
-#myUL:hover {
-    visibility: visible;
-    cursor:pointer;  
-    color:pink;
-}
-
-
-
-.tab {
-	width: 100%;
-	background-color: #76A8C8;
-	overflow: auto;
-}
-.tab a{
-	float: left;
- 	padding: 12px;
-  	color: white;
-	text-decoration: none;
-  	font-size: 17px;
-	width: 16.66%;
-	text-align: center;
-}
-
-.tab a:hover{
-  background-color: #C8D2D8;
-}
-
-.tab a.active{
-  background-color: #4CAF50;
-}
-
-@media screen and (max-width: 500px) {
-  .tab a {
-    float: none;
-    display: block;
-    width: 100%;
-    text-align: left;
-  }
-}
-
-.dropbtn{
+.dropbtn {
   background-color: #76A8C8;
   color: white;
   padding: 16px;
   font-size: 16px;
   border: none;
 }
-.dropdown{
- position:relative;
- display: inline-block;
 
+.dropdown {
+  position: relative;
+  display: inline-block;
 }
 
-.dropdown-content{
- display:none;
- position:absolute;
- background-color: #76A8C8;
- min-width: 160px;
- box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #76A8C8;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #76A8C8;}
 
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: #76A8C8;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
 
+.tab a{
+float: left;
+ padding: 12px;
+  color: white;
+text-decoration: none;
+  font-size: 17px;
+width: 16.66%;
+text-align: center;
+}
 
+ .tab a:hover{
+  background-color: #C8D2D8;
+}
+
+ .tab a.active{
+  background-color: #4CAF50;
+}
+
+ @media screen and (max-width: 500px) {
+  .tab a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
 
 
 

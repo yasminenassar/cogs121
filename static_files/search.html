@@ -25,18 +25,21 @@
      <a href="login.html"><class="tablinks"
      onclick="">Sign Out</button></a>
     </div>
-
-    <div>
-    <div class="dropdown">
+    <div class="dropdown"> 
     <button class="dropbtn">Vendors</button>
-    	<div class="dropdown-content">
-        <button type="button" class="block" onclick=search("wedding%20makeup%20artist")>Makeup Artist</button>
-        <button type="button" class="block"  onclick=search("wedding%20photographer")>Photographer</button>
-	</div>
+        <div class="dropdown-content">
+        <button type="button" class="block"  onclick=search("wedding%20makeup%20artist")>Makeup Artist</button>
+        <button type="button" class="block" onclick=search("wedding%20photographer")>Photographer</button>
+        </div>
     </div>
     <div id=searchResults></div>
     <script src="js/functionality.js">
 
     </script>
+    <script>
+       var access = "<%= accessToken %>";
+       console.log("in search, here's access", access);
+    </script>
+
 </body>
 </html>

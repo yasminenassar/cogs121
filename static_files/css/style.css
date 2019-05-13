@@ -41,6 +41,15 @@ body {
      text-align: center;
 }
 
+/* This changes the images that are in search results*/
+.vendor_img {
+  width: 150px;
+}
+
+/* */
+.vendor a {
+}
+
 .small-img {
   border-width: 100000px;
 }

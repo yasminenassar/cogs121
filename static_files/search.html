@@ -3,7 +3,8 @@
 <title>Vendor Search</title>
 
 <link href="css/style.css" rel="stylesheet">
-<script src="jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/jquery.js"></script>
+<!--<script src="jquery-3.3.1.min.js"></script>-->
 
 
 </head>
@@ -24,11 +25,12 @@
      <a href="login.html"><class="tablinks"
      onclick="">Sign Out</button></a>
     </div> 
-    <input type="text" id="myInput" onkeyup="searchFunc()" placeholder="Search.."  >
+    <input type="text" id="myInput"  placeholder="Search.." title="Type in vendor">
     <ul id="myUL">
-        <li>Makeup Artist</li>
-        <li>Photographer</li> 
+        <li><button onclick=search("wedding%20makeup%20artist")>Makeup Artist</button></li>
+        <li><button onclick=search("wedding%20photographer")>Photographer</button></li> 
     </ul>
+    <div id=searchResults></div>
     <script src="js/functionality.js">
 
     </script>

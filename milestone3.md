@@ -25,7 +25,10 @@ The home page here is very similar to the paper prototype except that we do not 
 ![Checklist Page](static_files/pics/milestone3/checklist.png)
 The checklist page in our skeleton is identical to the checklist page we have in our paper prototypes.
 
-![Search Page](static_files/pics/milestone3/search.png)
+![Search Page](static_files/pics/milestone3/search1.png)
+The vendor search page is also identical to the vendor search page we have in our paper prototype.
+
+![Search Page](static_files/pics/milestone3/search2.png)
 The vendor search page is also identical to the vendor search page we have in our paper prototype.
 
 ![Budget Page](static_files/pics/milestone3/budget.png)

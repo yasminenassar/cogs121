@@ -42,7 +42,13 @@ body {
 }
 
 .vendor_img {
+  width: 200px;
+  height: 200px;
+}
+
+.rating {
   width: 100px;
+  height: 20px;
 }
 
 /*.vendor p {

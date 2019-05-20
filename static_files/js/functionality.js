@@ -136,6 +136,7 @@ function search(filter){
               const rating = vendor.rating;
               const rateImg = document.createElement("img");
               rateImg.setAttribute("src", "ratings/" + rating + ".png");
+              rateImg.setAttribute("class", "rating");
               var a = document.createElement('a');
               var linkText = document.createTextNode(name);
               a.appendChild(linkText);
@@ -144,7 +145,7 @@ function search(filter){
               img.src = image;
               img.className = 'vendor_img';
               var vendorDiv = document.createElement('div');
-              vendorDiv.className = 'vendor';
+              //vendorDiv.className = 'vendor';
               vendorDiv.append(a);
               var priceP = document.createElement('p');
               var node;

@@ -13,8 +13,12 @@
    the CSS to the page. feel free to remove it once the link is working. */
 body {
      padding: 10px;
+<<<<<<< HEAD
+      background-color:#AAD6F2;
+=======
 		 /*background-color:#EAD1DCFF;*/
       background-color:#AAD6F2
+>>>>>>> 3e5810d44b00f67eb8ef9a66d412432cf132a216
 }
 
 .jumbotron {
@@ -326,7 +330,39 @@ input[type='checkbox'] {
   cursor: pointer;
   text-align: center;
 }
- 
+
+.tab a{
+float: left;
+ padding: 12px;
+  color: white;
+text-decoration: none;
+  font-size: 17px;
+width: 16.66%;
+text-align: center;
+}
+
+ .tab a:hover{
+  background-color: #C8D2D8;
+}
+
+ .tab a.active{
+  background-color: #4CAF50;
+}
+
+ @media screen and (max-width: 500px) {
+  .tab a {
+    float: none;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+
+
+
+
+
 
 @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;}

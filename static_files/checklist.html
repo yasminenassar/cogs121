@@ -3,7 +3,29 @@
 <title>Checklist</title>
 
 <link href="css/style.css" rel="stylesheet">
-<script src="jquery-3.3.1.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyABXbkLVS31IVgna1Z1MPy4q6jemcBOcpE",
+    authDomain: "weddit-6d5e1.firebaseapp.com",
+    databaseURL: "https://weddit-6d5e1.firebaseio.com",
+    projectId: "weddit-6d5e1",
+    storageBucket: "weddit-6d5e1.appspot.com",
+    messagingSenderId: "371631141647",
+    appId: "1:371631141647:web:b57030d8929ecf95"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<!--<script src="jquery-3.3.1.min.js"></script>-->
 
 
 </head>
@@ -32,7 +54,21 @@ caterer</p>
 <p style = "text-align: center;" ><input type="checkbox" name="curTasks" value="makeupartist"> Book makeup artist</p>
 <p style = "text-align: center;" ><input type="checkbox" name="curTasks" value="banana"> Book photographer</p>
 
-	<p style = "text-align: center;"><button id = "addtask" class = "btn btn-primary btn-lg" onclick="addTask()">Add New Task</button></p>
+	<p style = "text-align: center;"><button id = "addtask" class = "btn btn-primary btn-lg">Add New Task</button></p>
+
+<script type="text/javascript">
+    $(document).ready(() => {
+      const database = firebase.database();
+      const user = localStorage.getItem('curUser');
+      const userChecks = 'users/' + user + '/checklist';
+      $("#addtask").click(() => {
+        console.log("ADD TASK");
+        const curTasks = firebase.database().ref(userChecks);
+        console.log("curTasks: " , curTasks);
+        //database.ref(userChecks).set({checklist: newChecklist});
+      });
+    })
+  </script>
 
     <script src="js/functionality.js"></script>
 </body>

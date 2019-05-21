@@ -51,6 +51,12 @@
       <p style = "text-align:center;" ><input type="text" id="venue" placeholder="Venue"></p>
       <p style = "text-align:center;" ><input type="text" id="date" placeholder="Date of Wedding"></p>
       <p style = "text-align:center;" ><input type="text" id="budget" placeholder="Total Wedding Budget"></p>
+      <p sty>Choose Photo of You and Your Future Spouse</p>
+        <img id="btnFileUpload" onclick="readURL()" src="pics/camera.png" width="65px" height="65px" style="border:3px solid black; margin: 0px 20px;"/>
+        <span id="spnFilePath"></span>
+        <input type="file" id="FileUpload1" accept="image/*" style="display:none"/>
+        <img id="testImage" src="#" style="display:none"/>
+      </p>
 			<p style = "text-align:center;" ><button id="save" class="btn btn-primary
       btn-lg" >Save</button></p>
 		</div>

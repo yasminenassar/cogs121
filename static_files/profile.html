@@ -3,7 +3,28 @@
 <title>Edit Profile</title>
 
 <link href="css/style.css" rel="stylesheet">
-<script src="jquery-3.3.1.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyABXbkLVS31IVgna1Z1MPy4q6jemcBOcpE",
+    authDomain: "weddit-6d5e1.firebaseapp.com",
+    databaseURL: "https://weddit-6d5e1.firebaseio.com",
+    projectId: "weddit-6d5e1",
+    storageBucket: "weddit-6d5e1.appspot.com",
+    messagingSenderId: "371631141647",
+    appId: "1:371631141647:web:b57030d8929ecf95"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="https://code.jquery.com/jquery.js"></script>
 
 
 </head>
@@ -30,9 +51,31 @@
       <p style = "text-align:center;" ><input type="text" id="venue" placeholder="Venue"></p>
       <p style = "text-align:center;" ><input type="text" id="date" placeholder="Date of Wedding"></p>
       <p style = "text-align:center;" ><input type="text" id="budget" placeholder="Total Wedding Budget"></p>
-			<p style = "text-align:center;" ><button id="create" class="btn btn-primary
-      btn-lg" onclick="saveProfile()">Save</button></p>
+			<p style = "text-align:center;" ><button id="save" class="btn btn-primary
+      btn-lg" >Save</button></p>
 		</div>
+<script type="text/javascript">
+    $(document).ready(() => {
+      const database = firebase.database();
+      $("#save").click(() => {
+        console.log("SAVING");
+        const user = localStorage.getItem('curUser');
+        const userRef = "users/" + user;
+        console.log(userRef);
+        const bride = $("#brideName").val();
+        const groom = $("#groomName").val();
+        const venueE = $("#venue").val();
+        const dateW = $("#date").val();
+        const budget = $("#budget").val();
+      
+        console.log(bride);
+        database.ref(userRef).update({brideName: bride, groomName: groom,
+                                venue: venueE, dateOfWedding: dateW, 
+                                totalBudget: budget});
+        location.replace("index.html");
+      });
+    })
+  </script>
 
     <script src="js/functionality.js"></script>
 </body>

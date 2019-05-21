@@ -1,4 +1,4 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
     initializePage();
       console.log("ARE U READY");
       const curUser = localStorage.getItem('curUser');
@@ -36,7 +36,7 @@ $(document).ready(function() {
     }
 
     });
-})
+})*/
 
 function initializePage() {
   if(!localStorage.getItem('curUser') && location.href.includes("index.html")){

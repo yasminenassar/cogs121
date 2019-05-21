@@ -3,6 +3,27 @@
 <title>Home Page</title>
 
 <link href="css/style.css" rel="stylesheet">
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyABXbkLVS31IVgna1Z1MPy4q6jemcBOcpE",
+    authDomain: "weddit-6d5e1.firebaseapp.com",
+    databaseURL: "https://weddit-6d5e1.firebaseio.com",
+    projectId: "weddit-6d5e1",
+    storageBucket: "weddit-6d5e1.appspot.com",
+    messagingSenderId: "371631141647",
+    appId: "1:371631141647:web:b57030d8929ecf95"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
 <script src="https://code.jquery.com/jquery.js"></script>
 <!--<script src="jquery-3.3.1.min.js"></script>-->
 
@@ -36,15 +57,41 @@
     <script src="js/functionality.js"></script>
     <script type="text/javascript">
 
-/*    $(document).ready(() => {
-      console.log("ARE U READY");
-      const curUser = localStorage.getItem('curUser');
-  console.log(curUser);
+$(document).ready(function() {
+    initializePage();
+    const database = firebase.database();
 
-  const reqURL = 'users/' + curUser; 
-  console.log("requesting from", reqURL);
+    const curUser = localStorage.getItem('curUser');
+    console.log(curUser);
 
-  $.ajax({
+    const key = 'users/' + curUser; 
+    console.log("requesting from", key);
+    database.ref(key).once('value', (snapshot) => {
+      const data = snapshot.val();
+      console.log('You received some data!', data);
+      if(data){
+        const coupleName = data.brideName + ' & ' + data.groomName;
+         const dateVenue = data.dateOfWedding + ' - ' + data.venue;
+         console.log(coupleName);
+         console.log(dateVenue);
+         // lol countdown??? 
+         //const image = data.img;
+         //console.log(image);
+         $('#names').html(coupleName);
+         $('#dateVenue').html(dateVenue);
+         //$('#couple').attr('src', image).attr('width', '300px');
+
+      }
+      else{
+         console.log("boi this better not print");
+         $('#couple').attr('src', '');
+         $('#names').html("No couple found - log in!");
+         $('#dateVenue').html('');
+
+      }
+      });
+
+ /* $.ajax({
     url: reqURL,
     type: 'GET',
     dataType: 'json',
@@ -71,10 +118,9 @@
         // inputted user that doesn't exist??
       }
     }
-});
 
     });*/
-
-    </script>
+})
+</script>
 </body>
 </html>

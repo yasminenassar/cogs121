@@ -14,7 +14,7 @@
 body {
      padding: 10px;
 		 /*background-color:#EAD1DCFF;*/
-      background-color:#fff2df;
+      background-color:#EEE2DC;
 }
 
 .jumbotron {
@@ -286,7 +286,7 @@ input[type='checkbox'] {
 
 
 .dropbtn {
-  background-color: #76A8C8;
+  background-color: #EDC7B7;
   color: white;
   padding: 30px;
   font-size: 16px;
@@ -314,13 +314,13 @@ input[type='checkbox'] {
 }
 .dropdown-content a:hover {background-color: #ddd;}
 .dropdown:hover .dropdown-content {display: block;}
-.dropdown:hover .dropbtn {background-color: #76A8C8;}
+.dropdown:hover .dropbtn {background-color: #EDC7B7;}
 
 .block {
   display: block;
   width: 100%;
   border: none;
-  background-color: #76A8C8;
+  background-color: #EDC7B7;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
@@ -387,9 +387,9 @@ a{color:#336699;}
 
 .tab {
 	width: 100%;
-	/*background-color: #76A8C8;*/
+	background-color: #EDC7B7;
     
-	background-color: #9D2A3A;
+/*	background-color: #9D2A3A; */
 	overflow: auto;
 }
 
@@ -404,8 +404,8 @@ a{color:#336699;}
 }
 
  .tab a:hover{
-  /*background-color: #C8D2D8;*/
-  background-color: #BF5E6B;
+  background-color: #E3D1C9;
+ /* background-color: #BF5E6B;*/
 }
 
  .tab a.active{
@@ -488,7 +488,7 @@ ul li.checked::before {
 }
 
 .header {
-  background-color: #d85f6f;
+  background-color: #EDC7B7;
   padding: 30px 40px;
   color: white;
   text-align: center;
@@ -523,7 +523,7 @@ ul li.checked::before {
 .addBtn {
   padding: 10px;
   width: 25%;
-  background: #d9d9d9;
+  background: #EEE2DC;
   color: #555;
   float: left;
   text-align: center;

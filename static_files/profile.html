@@ -68,16 +68,29 @@
         const user = localStorage.getItem('curUser');
         const userRef = "users/" + user;
         console.log(userRef);
+        var dataToAdd = {};
         const bride = $("#brideName").val();
         const groom = $("#groomName").val();
         const venueE = $("#venue").val();
         const dateW = $("#date").val();
         const budget = $("#budget").val();
+        if(bride){
+          dataToAdd.brideName = bride;
+        }
+        if(groom){
+          dataToAdd.groomName = groom;
+        }
+        if(venueE){
+          dataToAdd.venue = venueE;
+        }
+        if(dateW){
+          dataToAdd.dateOfWedding = dateW;
+        }
+        if(budget){
+          dataToAdd.totalBudget = budget;
+        }
       
-        console.log(bride);
-        database.ref(userRef).update({brideName: bride, groomName: groom,
-                                venue: venueE, dateOfWedding: dateW, 
-                                totalBudget: budget});
+        database.ref(userRef).update(dataToAdd);
         location.replace("index.html");
       });
     })

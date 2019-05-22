@@ -123,35 +123,15 @@ function search(filter){
     const curUser = localStorage.getItem('curUser');
     console.log(curUser);
 
-    const reqURL = 'users/' + curUser; 
+  const database = firebase.database();
+    const reqURL = 'users/' + curUser + '/venue'; 
     console.log("requesting from", reqURL);
 
     var hashtag =""; 
-    var venue = "";
-
-    $.ajax({
-    url: reqURL,
-    type: 'GET',
-    dataType: 'json',
-    success: (data) => {
-      console.log('got some data ', data);
-      if(data.bride){
-         //const coupleName = data.bride + ' & ' + data.groom;
-         //const dateVenue = data.date + ' - ' + data.venue;
-         venue = data.venue;
-         venue = venue.replace(/\s/g, '');
-         //venue = venue.trim();
-         console.log("venue ", venue);
-         hashtag = venue+filter;
-         console.log("hashtag" , hashtag);
-      }
-      else{
-        console.log("boi this better not print");
-
-        // inputted user that doesn't exist??
-      }
-    }
-    }).then(function () {
+    database.ref(reqURL).once('value', (snapshot) => {
+      const data = snapshot.val();
+      console.log(data); 
+      const venue = data;
         console.log("in the then");
         const reqSearchURL = 'search/' + filter + '/' + venue ;
         $.ajax({
@@ -201,11 +181,88 @@ function search(filter){
               
           }
         });
-    });
     
+    });
 }
 
 function signOut() {
   localStorage.removeItem('curUser');
 }
+
+
+
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) 
+{
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    myNodelist[i].appendChild(span);
+}
+
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+function createChecklist() {
+  var list = document.getElementById("myUL");
+  var li = document.createElement("li");
+  var t = document.createTextNode("TESTINGGGGGG");
+  list.appendChild(t);
+}
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  const database = firebase.database();
+  const user = localStorage.getItem('curUser');
+  const userChecks = 'users/' + user + '/checklist';
+  console.log(userChecks);
+  database.ref(userChecks).once('value', (snapshot) => {
+    const data = snapshot.val();
+    console.log("checklist: ", data);
+    var numOfTasks = (data) ? Object.keys(data).length : 0;
+    console.log("number of tasks",numOfTasks);
+    const curCheck = userChecks + '/check' + numOfTasks;
+    database.ref(curCheck).update({task: inputValue, 
+                                     checked: "no"});
+  });
+
+  console.log("jerllyfish");
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+   var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
 

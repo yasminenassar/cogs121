@@ -13,12 +13,8 @@
    the CSS to the page. feel free to remove it once the link is working. */
 body {
      padding: 10px;
-<<<<<<< HEAD
-      background-color:#AAD6F2;
-=======
 		 /*background-color:#EAD1DCFF;*/
-      background-color:#AAD6F2
->>>>>>> 3e5810d44b00f67eb8ef9a66d412432cf132a216
+      background-color:#fff2df;
 }
 
 .jumbotron {
@@ -391,7 +387,9 @@ a{color:#336699;}
 
 .tab {
 	width: 100%;
-	background-color: #76A8C8;
+	/*background-color: #76A8C8;*/
+    
+	background-color: #9D2A3A;
 	overflow: auto;
 }
 
@@ -406,7 +404,8 @@ a{color:#336699;}
 }
 
  .tab a:hover{
-  background-color: #C8D2D8;
+  /*background-color: #C8D2D8;*/
+  background-color: #BF5E6B;
 }
 
  .tab a.active{
@@ -420,4 +419,125 @@ a{color:#336699;}
     width: 100%;
     text-align: left;
   }
+
 }
+
+
+* {
+  box-sizing: border-box;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+  list-style-type: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+ul li:nth-child(odd) {
+  background: #f9f9f9;
+}
+
+ul li:hover {
+  background: #ddd;
+}
+
+
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+.header {
+  background-color: #d85f6f;
+  padding: 30px 40px;
+  color: white;
+  text-align: center;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#myInput {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+#profile input {
+ margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+
+
+
+

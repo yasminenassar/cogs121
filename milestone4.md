@@ -41,10 +41,10 @@ a more aesthetic way!
 
 ## Trivial Tasks
 
-1.Checklist Page
+1. Checklist Page
 	The checklist page is the first of our non trivial actions. A user is able to go to the checklist page and add a task by typing it in the bar and hitting “add”. The task will show up at the bottom. When the task has been completed, the user can click on the bar, and there will be a check that appears to the left of the word to show that it has been completed. If a user needs to remove the task completely from their list, they can hit on the ‘x’ to the right of the word, and that will remove it from the list. 
 
-2.Edit Profile Page
+2. Edit Profile Page
 	The edit profile page is where the user can go and make changes to their existing profile. When the user goes to the edit profile page, they are able to edit their name, the groom name, the venue, the date of their wedding, the total budget, and their photo. All these changes will be relayed on the home page. Not all categories have to be edited so that the changes are reflected on the home page. 
 
 

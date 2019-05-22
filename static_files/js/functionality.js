@@ -215,15 +215,93 @@ var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
+    var text = ev.target["innerText"];
+    text = text.substring(0, text.length-1);
+    const userChecks = 'users/' + localStorage.getItem('curUser') + '/checklist';
+
+    const database = firebase.database();
+    database.ref(userChecks).once('value', (snapshot) => {
+        const data = snapshot.val();
+        for (d in data){
+          const curTaskRef = userChecks + '/' + d;
+          console.log(curTaskRef);
+          database.ref(curTaskRef).once('value', (snapshot) => {
+            const curItem = snapshot.val();
+            console.log("item that was checked",text);
+            console.log("looking for it",curItem.task);
+            if(text.localeCompare(curItem.task)){
+              console.log("WE FOUND THE DATABASE PART OF THE CLICKED", text);
+            }
+            
+         });
+
+        }
+   });
   }
 }, false);
 
 function createChecklist() {
+  const database = firebase.database();
   var list = document.getElementById("myUL");
-  var li = document.createElement("li");
-  var t = document.createTextNode("TESTINGGGGGG");
-  list.appendChild(t);
+  const user = localStorage.getItem('curUser');
+  const userChecks = 'users/' + user + '/checklist';
+  console.log(userChecks);
+  database.ref(userChecks).once('value', (snapshot) => {
+    const data = snapshot.val();
+    for (d in data){
+      console.log("checklist task: ", d);
+      const curTaskRef = userChecks + '/' + d;
+      console.log(curTaskRef);
+      database.ref(curTaskRef).once('value', (snapshot) => {
+        const curItem = snapshot.val();
+        console.log(curItem);
+        var t = document.createTextNode(curItem.task);
+        var li = document.createElement("li");
+        list.appendChild(li);
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        // if it's checked, we should toggle it
+        /*if(curItem.checked == 'yes'){
+          li.classList.toggle('checked');  
+        }*/
+
+        li.appendChild(t);
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+            var text = div["innerText"];
+            text = text.substring(0, text.length-1);
+            console.log("text:", text);
+            database.ref(userChecks).once('value', (snapshot) => {
+              const data = snapshot.val();
+              for (d in data){
+              const curTaskRef = userChecks + '/' + d;
+              console.log(curTaskRef);
+              database.ref(curTaskRef).once('value', (snapshot) => {
+                  const curItem = snapshot.val();
+                  console.log(curItem);
+                  if(curItem.task == text){
+                    console.log("WE FOUND THE DATABASE PART");
+                    snapshot.ref.remove();
+                  }
+              });
+
+              }
+            });
+          }
+        }
+      });
+
+    }
+
+  });
+
 }
+
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;

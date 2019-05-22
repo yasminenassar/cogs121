@@ -63,9 +63,11 @@ caterer</p>
       const userChecks = 'users/' + user + '/checklist';
       $("#addtask").click(() => {
         console.log("ADD TASK");
-        const curTasks = firebase.database().ref(userChecks);
-        console.log("curTasks: " , curTasks);
         //database.ref(userChecks).set({checklist: newChecklist});
+        database.ref(userChecks).once('value', (snapshot) => {
+          const data = snapshot.val();
+          console.log("checklist: ", data);
+        });
       });
     })
   </script>

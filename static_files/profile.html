@@ -51,6 +51,12 @@
       <p style = "text-align:center;" ><input type="text" id="venue" placeholder="Venue"></p>
       <p style = "text-align:center;" ><input type="text" id="date" placeholder="Date of Wedding"></p>
       <p style = "text-align:center;" ><input type="text" id="budget" placeholder="Total Wedding Budget"></p>
+      <p sty>Choose Photo of You and Your Future Spouse</p>
+        <img id="btnFileUpload" onclick="readURL()" src="pics/camera.png" width="65px" height="65px" style="border:3px solid black; margin: 0px 20px;"/>
+        <span id="spnFilePath"></span>
+        <input type="file" id="FileUpload1" accept="image/*" style="display:none"/>
+        <img id="testImage" src="#" style="display:none"/>
+      </p>
 			<p style = "text-align:center;" ><button id="save" class="btn btn-primary
       btn-lg" >Save</button></p>
 		</div>
@@ -62,16 +68,29 @@
         const user = localStorage.getItem('curUser');
         const userRef = "users/" + user;
         console.log(userRef);
+        var dataToAdd = {};
         const bride = $("#brideName").val();
         const groom = $("#groomName").val();
         const venueE = $("#venue").val();
         const dateW = $("#date").val();
         const budget = $("#budget").val();
+        if(bride){
+          dataToAdd.brideName = bride;
+        }
+        if(groom){
+          dataToAdd.groomName = groom;
+        }
+        if(venueE){
+          dataToAdd.venue = venueE;
+        }
+        if(dateW){
+          dataToAdd.dateOfWedding = dateW;
+        }
+        if(budget){
+          dataToAdd.totalBudget = budget;
+        }
       
-        console.log(bride);
-        database.ref(userRef).update({brideName: bride, groomName: groom,
-                                venue: venueE, dateOfWedding: dateW, 
-                                totalBudget: budget});
+        database.ref(userRef).update(dataToAdd);
         location.replace("index.html");
       });
     })

@@ -74,12 +74,14 @@ $(document).ready(function() {
          const dateVenue = data.dateOfWedding + ' - ' + data.venue;
          console.log(coupleName);
          console.log(dateVenue);
-         // lol countdown??? 
-         //const image = data.img;
-         //console.log(image);
+         const imgUrl = 'users/' + curUser + '/img';
+         var image;
+         database.ref(imgUrl).once('value', (snapshot) => {
+            const data = snapshot.val();
+           $('#couple').attr('src', data).attr('width', '300px');
+         });
          $('#names').html(coupleName);
          $('#dateVenue').html(dateVenue);
-         //$('#couple').attr('src', image).attr('width', '300px');
 
       }
       else{

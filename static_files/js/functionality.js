@@ -38,6 +38,42 @@
     });
 })*/
 
+function readURL() {
+  const database = firebase.database();
+  var fileupload = $("#FileUpload1");
+  var filePath = $("#spnFilePath");
+  var button = $("#btnFileUpload");
+    fileupload.click();
+    fileupload.change(function () {
+      var file = document.getElementById('FileUpload1').files[0];
+      // some stuff that doesn't work
+      //imgData = getBase64Image(file);
+      //localStorage.setItem("imgData", imgData);
+      console.log(file);
+      if (file) {
+        // create reader
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          // storing e.target.result, whatever that is
+          localStorage.setItem("image",e.target.result);
+          const user = localStorage.getItem('curUser');
+          const userRef = 'users/' + user;
+          database.ref(userRef).update({img: e.target.result});
+          // browser completed reading file - display it
+          $('#testImage')
+              .attr('src', e.target.result)
+              .width(75)
+              .height(100);
+          $('#testImage').show();
+        };
+        reader.readAsDataURL(file);
+      }
+      // this displays the file name
+      var fileName = $(this).val().split('\\')[$(this).val().split('\\').length - 1];
+      filePath.html("<b>Selected File: </b>" + fileName);
+    });
+}
+
 function initializePage() {
   if(!localStorage.getItem('curUser') && location.href.includes("index.html")){
     location.replace('login.html');

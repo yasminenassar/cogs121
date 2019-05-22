@@ -3,7 +3,7 @@
 <title>Checklist</title>
 
 <link href="css/style.css" rel="stylesheet">
-<script src="jquery-3.3.1.min.js"></script>
+<!--<script src="jquery-3.3.1.min.js"></script>-->
 
 
 </head>
@@ -26,13 +26,25 @@
     </div>
 
     
-   <i> <p style = "text-align: center;" >Current Tasks:</p></i>
-<p style = "text-align: center;" ><input type="checkbox" name="curTasks" value="caterer" checked> Book
+    <div id="myDIV" class="header">
+        <h2><i>Current Tasks</i></h2>
+        <input type="text" id="myInput" placeholder="Title...">
+        <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myUL">
+        <li> Book Caterer</li>
+        <li>Book Makeup Artist</li>
+        <li>Book Photographer</li>
+    </ul>
+         
+<!--<p style = "text-align: center;" ><input type="checkbox" name="curTasks" value="caterer" checked> Book
 caterer</p>
 <p style = "text-align: center;" ><input type="checkbox" name="curTasks" value="makeupartist"> Book makeup artist</p>
 <p style = "text-align: center;" ><input type="checkbox" name="curTasks" value="banana"> Book photographer</p>
 
-	<p style = "text-align: center;"><button id = "addtask" class = "btn btn-primary btn-lg" onclick="addTask()">Add New Task</button></p>
+	<p style = "text-align: center;"><button id = "addtask" class = "btn
+btn-primary btn-lg" onclick="addTask()">Add New Task</button></p>--!>
 
     <script src="js/functionality.js"></script>
 </body>

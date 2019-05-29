@@ -161,6 +161,7 @@ function search(filter){
               img.src = image;
               img.className = 'vendor_img';
               var vendorDiv = document.createElement('div');
+              var emptyP = document.createElement('p');
               //vendorDiv.className = 'vendor';
               vendorDiv.append(a);
               var priceP = document.createElement('p');
@@ -170,7 +171,9 @@ function search(filter){
                 priceP.appendChild(node);
               }
 
+              vendorDiv.append(emptyP);
               vendorDiv.append(rateImg);
+              vendorDiv.append(emptyP);
               vendorDiv.append(priceP);
               vendorDiv.append(img);
               console.log(vendorDiv);

@@ -214,7 +214,8 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
-var list = document.querySelector('ul');
+//var list = document.querySelector('ul');
+var list = document.getElementById('myUL');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
@@ -353,4 +354,95 @@ function newElement() {
   }
 }
 
+function newBudgetElement() {
+  var li = document.createElement("li");
+  var vendorI = document.getElementById("vendorInput").value;
+  var priceI = document.getElementById("priceInput").value;
+  const database = firebase.database();
+  const user = localStorage.getItem('curUser');
+  const userBudget = 'users/' + user + '/budget';
+  console.log(userBudget);
+  database.ref(userBudget).once('value', (snapshot) => {
+    const data = snapshot.val();
+    console.log("budget: ", data);
+    var numOfBudget = (data) ? Object.keys(data).length : 0;
+    console.log("number of budgets",numOfBudget);
+    const curBudget = userBudget + '/budget' + numOfBudget;
+    database.ref(curBudget).update({vendor: vendorI, 
+                                    price: priceI});
+  });
 
+  var t = document.createTextNode(vendorI + " : " + priceI);
+  li.appendChild(t);
+  document.getElementById("vendorInput").value = "";
+  document.getElementById("priceInput").value = "";
+
+  document.getElementById("budgetUL").appendChild(li);
+   var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+
+function createBudget() {
+  const database = firebase.database();
+  var list = document.getElementById("budgetUL");
+  const user = localStorage.getItem('curUser');
+  const userBudget = 'users/' + user + '/budget';
+  console.log(userBudget);
+  database.ref(userBudget).once('value', (snapshot) => {
+    const data = snapshot.val();
+    for (d in data){
+      console.log("budget: ", d);
+      const curBudgetRef = userBudget + '/' + d;
+      console.log(curBudgetRef);
+      database.ref(curBudgetRef).once('value', (snapshot) => {
+        const curItem = snapshot.val();
+        console.log(curItem);
+        var t = document.createTextNode(curItem.vendor + " : " + curItem.price);
+        var li = document.createElement("li");
+        list.appendChild(li);
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+
+        li.appendChild(t);
+        span.className = "close";
+        span.appendChild(txt);
+        li.appendChild(span);
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function() {
+            var div = this.parentElement;
+            div.style.display = "none";
+            var text = div["innerText"];
+            text = text.substring(0, text.length-1);
+            console.log("text:", text);
+            database.ref(userBudget).once('value', (snapshot) => {
+              const data = snapshot.val();
+              for (d in data){
+              const curBudgetRef = userBudget + '/' + d;
+              console.log(curBudgetRef);
+              database.ref(curBudgetRef).once('value', (snapshot) => {
+                  const curItem = snapshot.val();
+                  console.log(curItem);
+                  if(text.includes(curItem.vendor)){
+                    console.log("WE FOUND THE DATABASE PART");
+                    snapshot.ref.remove();
+                  }
+              });
+
+              }
+            });
+          }
+        }
+      });
+    }
+  });
+}

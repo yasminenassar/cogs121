@@ -3,6 +3,7 @@
 <title>Budget</title>
 
 <link href="css/style.css" rel="stylesheet">
+<!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
 
 <!-- TODO: Add SDKs for Firebase products that you want to use
@@ -24,24 +25,8 @@
 </script>
 
 <script src="https://code.jquery.com/jquery.js"></script>
+<!--<script src="jquery-3.3.1.min.js"></script>-->
 
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #BB8FCE;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #BB8FCE;
-}
-</style>
 
 </head>
 <body>
@@ -50,7 +35,7 @@ tr:nth-child(even) {
     <div class="tab">
       <a href="index.html"><class="tablinks" onclick="">Home</button></a>
       <!--<a href="boards.html"><button class="tablinks"
-      onclick="">Boards</button></a> -->
+      onclick="">Boards</button></a>-->
       <a href="checklist.html"><class="tablinks"
       onclick="">Checklist</button></a>
       <a href="search.html"><class="tablinks" onclick="">Vendor
@@ -62,35 +47,61 @@ tr:nth-child(even) {
      <a href="login.html"><class="tablinks"
      onclick="signOut()">Sign Out</button></a>
     </div>
-    <p></p>
-    <p></p>
 
-    <!--<h2>HTML Table</h2>-->
+    
+    <div id="myDIV" class="header">
+        <h2><i>Current Tasks</i></h2>
+        <input type="text" id="vendorInput" placeholder="Which vendor?">
+        <input type="text" id="priceInput" placeholder="How much?">
+        <span onclick="newBudgetElement()" class="addBtn">Add</span>
+    </div>
 
-<table>
-  <tr>
-    <th>Vendor</th>
-    <th>Budget</th>
-    <th>Actual Cost</th>
-  </tr>
-  <tr>
-    <td>Makeup Artist</td>
-    <td>$1200</td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>Hair Stylist</td>
-    <td>$1300</td>
-    <td>$1000</td>
-  </tr>
- </table>
- 
- <font size = "6"> <p style = "text-align: center;" <h2>Total Budget: $23,000</h2></p></font>
- <font size = "6"> <p style = "text-align: center;" <h2>Budget Spent: $1,000</h2></p></font>
- <font size = "6"> <p style = "text-align: center;" <h2>Budget Remaining: $22,000</h2></p></font>
+    <ul id="budgetUL">
+        <!--<li> Book Caterer</li>
+        <li>Book Makeup Artist</li>
+        <li>Book Photographer</li>-->
+    </ul>
+    <div id="totalBudget"></div>
+         
+	<!--<p style = "text-align: center;"><button id = "addtask" class = "btn
+      btn-primary btn-lg">Add New Task</button></p>-->
+
+<script type="text/javascript">
+    $(document).ready(() => {
+      const database = firebase.database();
+      createBudget();
+      const user = localStorage.getItem('curUser');
+      const totalBudgetRef = 'users/' + user + '/totalBudget';
+      var totalBudget;
+      var remaining;
+      database.ref(totalBudgetRef).once('value', (snapshot) => {
+        totalBudget = snapshot.val();
+        const para = document.createElement('h2');
+        const text = document.createTextNode("Total Budget: " + totalBudget);
+        para.appendChild(text);
+        $('#totalBudget').append(para);
+        const allBudgets = 'users/' + user + '/budget';
+        remaining = parseInt(totalBudget);
+        database.ref(allBudgets).once('value', (snapshot) => {
+          const data = snapshot.val();
+          for(d in data){
+            console.log("budgetTTTT:", d);
+            const curBudget = allBudgets + '/' + d;
+            console.log("cur budget ref", curBudget);
+            database.ref(curBudget).once('value', (snapshot) => {
+              const curBudget = snapshot.val();
+              console.log("CURBUDGET:", parseInt(curBudget.price));
+              remaining = remaining - parseInt(curBudget.price);
+            });
+          }
+        });
+      });
+
+
+
+    })
+  </script>
+
     <script src="js/functionality.js"></script>
-
-
-    <p style = "text-align: center;" ><button id="addExpense" class="btn btn-primarybtn-lg" onclick="addExpense()">Add Expense</button></p>
 </body>
 </html>

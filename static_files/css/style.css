@@ -524,6 +524,26 @@ ul li.checked::before {
   font-size: 16px;
 }
 
+#vendorInput {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+#priceInput {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
 #profile input {
  margin: 0;
   border: none;

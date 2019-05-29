@@ -218,28 +218,35 @@ var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
-    var text = ev.target["innerText"];
-    text = text.substring(0, text.length-1);
+    var text = (String) (ev.target["innerText"]);
+    text = text.substring(0, text.length-2);
+    console.log("text:", text);
     const userChecks = 'users/' + localStorage.getItem('curUser') + '/checklist';
 
     const database = firebase.database();
     database.ref(userChecks).once('value', (snapshot) => {
         const data = snapshot.val();
         for (d in data){
-          const curTaskRef = userChecks + '/' + d;
-          console.log(curTaskRef);
-          database.ref(curTaskRef).once('value', (snapshot) => {
+        const curTaskRef = userChecks + '/' + d;
+        console.log(curTaskRef);
+        database.ref(curTaskRef).once('value', (snapshot) => {
             const curItem = snapshot.val();
-            console.log("item that was checked",text);
-            console.log("looking for it",curItem.task);
-            if(text.localeCompare(curItem.task)){
-              console.log("WE FOUND THE DATABASE PART OF THE CLICKED", text);
+            console.log("curItem.task",curItem.task);
+            if(text == curItem.task){
+            //if(text.includes(curItem.task)){
+              console.log("WE FOUND THE DATABASE PART");
+              if(snapshot.val().checked == 'yes'){
+                snapshot.ref.update({checked: "no"});
+              }
+              else{
+                snapshot.ref.update({checked: "yes"});
+              }
+              //snapshot.ref.remove();
             }
-            
-         });
+        });
 
         }
-   });
+        });
   }
 }, false);
 
@@ -264,9 +271,9 @@ function createChecklist() {
         var span = document.createElement("SPAN");
         var txt = document.createTextNode("\u00D7");
         // if it's checked, we should toggle it
-        /*if(curItem.checked == 'yes'){
+        if(curItem.checked == 'yes'){
           li.classList.toggle('checked');  
-        }*/
+        }
 
         li.appendChild(t);
         span.className = "close";

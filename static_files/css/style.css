@@ -256,7 +256,20 @@ input[type='checkbox'] {
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
-
+#name{
+visibility: hidden;
+min-width: 250px;
+background-color: #333;
+color: white;
+text-align:center;
+border-radius: 2px;
+padding: 16px;
+position: fixed;
+z-index: 1;
+left:50%;
+bottom: 30px;
+font-size: 17px;
+}
 #friendSnack{
     visibility: hidden;
     min-width: 250px;

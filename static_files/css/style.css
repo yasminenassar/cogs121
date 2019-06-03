@@ -587,6 +587,7 @@ position: absolute;
   transition: 0.3s;
   border-radius: 0;
 }
+
 .addBtn1 {
   padding: 10px;
   width: 25%;
@@ -635,3 +636,10 @@ position: absolute;
 
 
 
+#totalBudget{
+  font-style:italic;
+}
+
+#remain {
+  font-style:italic;
+}

@@ -1,5 +1,3 @@
-/* Here, all the styling of the different components of the site are done. When there is a color change, alignment change, font change, spacing, or background change etc. it is all done in this file. */
-
 /* applies to anything of class "example-class-selector" */
 .example-class-selector {
 	margin-top: 2em;
@@ -291,7 +289,7 @@ font-size: 17px;
 .dropbtn {
   background-color: #EDC7B7;
   color: white;
-  padding: 30px;
+  padding: 20px;
   font-size: 16px;
   border: none;
 }
@@ -311,7 +309,7 @@ font-size: 17px;
 }
 
 .dropdown-content a {
-  color: black;
+  color: white;
   padding: 12px 16px;
   text-decoration: none;
 }
@@ -327,10 +325,9 @@ font-size: 17px;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
+  color: white;
   text-align: center;
 }
-
-/*Here, the tab that contains all the tabs to navigate the website is made to look the way that it is. The nav bar spans the page, and each tab is divided evenly across the tab. This also has the styling for the font, alignment, and color of the text on the tab. Below is the function for the hover on the tab. If your mouse goes over a category on the nav bar, that tab option will highlight.  */
 
 .tab a{
 float: left;
@@ -408,9 +405,8 @@ a{color:#336699;}
 	text-align: center;
 }
 
- .tab a:hover{
+.tab a:hover{
   background-color: #E3D1C9;
- /* background-color: #BF5E6B;*/
 }
 
  .tab a.active{
@@ -514,34 +510,25 @@ ul li.checked::before {
   float: left;
   font-size: 16px;
 }
-/*vendorInput and priceInput here contain the styling for the input  */
 
 #vendorInput {
   margin: 0;
   border: none;
   border-radius: 0;
-  width: 75%;
+  width: 100%;
   padding: 10px;
   float: left;
   font-size: 16px;
- position: absolute;
- left: 50%;
- top:40%;
- transform:translate(-50%, -50%);
 }
 
 #priceInput {
   margin: 0;
   border: none;
   border-radius: 0;
-  width: 75%;
+  width: 100%;
   padding: 10px;
   float: left;
   font-size: 16px;
-position: absolute;
- left: 50%;
- top:47%;
- transform:translate(-50%, -50%);
 
 }
 
@@ -585,16 +572,11 @@ position: absolute;
   width: 25%;
   background: #EEE2DC;
   color: #ffffff;
-  float: left;
   text-align: center;
   font-size: 16px;
   cursor: pointer;
   transition: 0.3s;
   border-radius: 0;
-  position: absolute;
-  left: 50%;
-  top: 54%;
-  transform: translate(-50%, -50%);
 }
 
 .addBtn:hover {
@@ -618,8 +600,23 @@ position: absolute;
 
 #totalBudget{
   font-style:italic;
+  text-align: center;
 }
 
 #remain {
   font-style:italic;
+  text-align: center;
+}
+.down {
+  transform: rotate(45deg);
+  color: white;
+  -webkit-transform: rotate(45deg);
+}
+
+i {
+  border: solid white;
+  color: white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
 }

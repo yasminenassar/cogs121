@@ -37,3 +37,7 @@ wedding
 
 ## Google Slide
 [Here's the google slide](https://docs.google.com/presentation/d/12oZ-vm6R7snCB5_ZBhtQpV4Mg9aDfHsr9v-NZhKX-20/edit?usp=sharing)
+
+## Video
+[Here's the youtube
+link](https://www.youtube.com/watch?v=v8dHZaiZF8w&feature=youtu.be)

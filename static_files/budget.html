@@ -82,6 +82,7 @@
         //displaying for user what their total budget is
         totalBudget = snapshot.val();
         const para = document.createElement('h2');
+        para.setAttribute("style", "text-align:center; color: #544c4c");
         const text = document.createTextNode("Total Budget: " + totalBudget);
         para.appendChild(text);
         $('#totalBudget').append(para);

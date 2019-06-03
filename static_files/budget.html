@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Budget</title>
+
+<link href="css/style.css" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyABXbkLVS31IVgna1Z1MPy4q6jemcBOcpE",
+    authDomain: "weddit-6d5e1.firebaseapp.com",
+    databaseURL: "https://weddit-6d5e1.firebaseio.com",
+    projectId: "weddit-6d5e1",
+    storageBucket: "weddit-6d5e1.appspot.com",
+    messagingSenderId: "371631141647",
+    appId: "1:371631141647:web:b57030d8929ecf95"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #BB8FCE;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #BB8FCE;
+}
+</style>
+
+</head>
+<body>
+
+    <p style = "text-align:center;"> <img id="logo"src="pics/wedditlogo.png" style = width 200px; height: 100px;></img></p>
+    <div class="tab">
+      <a href="index.html"><class="tablinks" onclick="">Home</button></a>
+      <!--<a href="boards.html"><button class="tablinks"
+      onclick="">Boards</button></a> -->
+      <a href="checklist.html"><class="tablinks"
+      onclick="">Checklist</button></a>
+      <a href="search.html"><class="tablinks" onclick="">Vendor
+      Search</button></a>
+     <a href="budget.html"><class="tablinks"
+     onclick="">Budget</button></a>
+     <a href="profile.html"><class="tablinks"
+     onclick="">Edit Profile</button></a>
+     <a href="login.html"><class="tablinks"
+     onclick="signOut()">Sign Out</button></a>
+    </div>
+    <p></p>
+    <p></p>
+
+    <!--<h2>HTML Table</h2>-->
+ <div id="myDIV" class="header">
+        <h2><i>Current Tasks</i></h2>
+        <input type="text" id="myInput" placeholder="Title...">
+        <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+ <div id="myDIV" class="header">
+        <input type="text" id="myInput" placeholder="Title...">
+        <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+<table>
+  <tr>
+    <th>Vendor</th>
+    <th>Budget</th>
+    <th>Actual Cost</th>
+  </tr>
+  <tr>
+    <td>Makeup Artist</td>
+    <td>$1200</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Hair Stylist</td>
+    <td>$1300</td>
+    <td>$1000</td>
+  </tr>
+ </table>
+ 
+ <font size = "6"> <p style = "text-align: center;" <h2>Total Budget: $23,000</h2></p></font>
+ <font size = "6"> <p style = "text-align: center;" <h2>Budget Spent: $1,000</h2></p></font>
+ <font size = "6"> <p style = "text-align: center;" <h2>Budget Remaining: $22,000</h2></p></font>
+    <script src="js/functionality.js"></script>
+
+
+    <p style = "text-align: center;" ><button id="addExpense" class="btn btn-primarybtn-lg" onclick="addExpense()">Add Expense</button></p>
+</body>
+</html>

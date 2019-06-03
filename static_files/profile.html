@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>Edit Profile</title>
+
+<link href="css/style.css" rel="stylesheet">
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyABXbkLVS31IVgna1Z1MPy4q6jemcBOcpE",
+    authDomain: "weddit-6d5e1.firebaseapp.com",
+    databaseURL: "https://weddit-6d5e1.firebaseio.com",
+    projectId: "weddit-6d5e1",
+    storageBucket: "weddit-6d5e1.appspot.com",
+    messagingSenderId: "371631141647",
+    appId: "1:371631141647:web:b57030d8929ecf95"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+
+
+</head>
+<body>
+
+    <p style = "text-align:center;"> <img id="logo"src="pics/wedditlogo.png" style = width 200px; height: 100px;></img></p>
+    <div class="tab">
+      <a href="index.html"><class="tablinks" onclick="">Home</button></a>
+      <!--<a href="boards.html"><button class="tablinks"
+      onclick="">Boards</button></a>-->
+      <a href="checklist.html"><class="tablinks"
+      onclick="">Checklist</button></a>
+      <a href="search.html"><class="tablinks" onclick="">Vendor
+      Search</button></a>
+     <a href="budget.html"><class="tablinks"
+     onclick="">Budget</button></a>
+     <a href="profile.html"><class="tablinks"
+     onclick="">Edit Profile</button></a>
+     <a href="login.html"><class="tablinks"
+     onclick="signOut()">Sign Out </button></a>
+    </div>
+    <div id="profile" class="jumbotron">
+      <p style = "text-align:center;" ><input type="text" id="brideName" placeholder="Bride's Name"></p>
+      <p style = "text-align:center;" ><input type="text" id="groomName" placeholder="Groom's Name"></p>
+      <p style = "text-align:center;" ><input type="text" id="venue" placeholder="Venue"></p>
+      <p style = "text-align:center;" ><input type="text" id="date" placeholder="Date of Wedding"></p>
+      <p style = "text-align:center;" ><input type="text" id="budget" placeholder="Total Wedding Budget"></p>
+
+      <p style = "text-align:center;">Choose Photo of You and Your Future Spouse</p>
+        <p style = "text-align:center;"><img id="btnFileUpload" onclick="readURL()" src="pics/camera.png" width="65px" height="65px" style="border:3px solid black; margin: 0px 20px;"/></p>
+        <span id="spnFilePath"></span>
+        <input type="file" id="FileUpload1" accept="image/*" style="display:none"/>
+        <img id="testImage" src="#" style="display:none"/>
+      </p>
+			<p style = "text-align:center;" ><button id="save" class="btn btn-primary
+      btn-lg" >Save</button></p>
+		</div>
+<script type="text/javascript">
+    $(document).ready(() => {
+      const database = firebase.database();
+      $("#save").click(() => {
+        console.log("SAVING");
+        const user = localStorage.getItem('curUser');
+        const userRef = "users/" + user;
+        console.log(userRef);
+        var dataToAdd = {};
+        const bride = $("#brideName").val();
+        const groom = $("#groomName").val();
+        const venueE = $("#venue").val();
+        const dateW = $("#date").val();
+        const budget = $("#budget").val();
+        if(bride){
+          dataToAdd.brideName = bride;
+        }
+        if(groom){
+          dataToAdd.groomName = groom;
+        }
+        if(venueE){
+          dataToAdd.venue = venueE;
+        }
+        if(dateW){
+          dataToAdd.dateOfWedding = dateW;
+        }
+        if(budget){
+          dataToAdd.totalBudget = budget;
+        }
+      
+        database.ref(userRef).update(dataToAdd);
+        location.replace("index.html");
+      });
+    })
+  </script>
+
+    <script src="js/functionality.js"></script>
+</body>
+</html>

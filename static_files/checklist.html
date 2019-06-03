@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Checklist</title>
+
+<link href="css/style.css" rel="stylesheet">
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyABXbkLVS31IVgna1Z1MPy4q6jemcBOcpE",
+    authDomain: "weddit-6d5e1.firebaseapp.com",
+    databaseURL: "https://weddit-6d5e1.firebaseio.com",
+    projectId: "weddit-6d5e1",
+    storageBucket: "weddit-6d5e1.appspot.com",
+    messagingSenderId: "371631141647",
+    appId: "1:371631141647:web:b57030d8929ecf95"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<!--<script src="jquery-3.3.1.min.js"></script>-->
+
+
+</head>
+<body>
+
+    <p style = "text-align:center;"> <img id="logo"src="pics/wedditlogo.png" style = width 200px; height: 100px;></img></p>
+    <div class="tab">
+      <a href="index.html"><class="tablinks" onclick="">Home</button></a>
+      <!--<a href="boards.html"><button class="tablinks"
+      onclick="">Boards</button></a>-->
+      <a href="checklist.html"><class="tablinks"
+      onclick="">Checklist</button></a>
+      <a href="search.html"><class="tablinks" onclick="">Vendor
+      Search</button></a>
+     <a href="budget.html"><class="tablinks"
+     onclick="">Budget</button></a>
+     <a href="profile.html"><class="tablinks"
+     onclick="">Edit Profile</button></a>
+     <a href="login.html"><class="tablinks"
+     onclick="signOut()">Sign Out</button></a>
+    </div>
+
+    
+    <div id="myDIV" class="header">
+        <h2><i>Current Tasks</i></h2>
+        <input type="text" id="myInput" placeholder="Add a new task...">
+        <span onclick="newElement()" class="addBtn">Add</span>
+    </div>
+
+    <ul id="myUL">
+        <!--<li> Book Caterer</li>
+        <li>Book Makeup Artist</li>
+        <li>Book Photographer</li>-->
+    </ul>
+         
+	<!--<p style = "text-align: center;"><button id = "addtask" class = "btn
+      btn-primary btn-lg">Add New Task</button></p>-->
+
+<script type="text/javascript">
+    $(document).ready(() => {
+      createChecklist();
+      const database = firebase.database();
+      const user = localStorage.getItem('curUser');
+      const userChecks = 'users/' + user + '/checklist';
+      /*$("#addBtn").click(() => {
+        console.log("ADD TASK");
+        //database.ref(userChecks).set({checklist: newChecklist});
+        database.ref(userChecks).once('value', (snapshot) => {
+          const data = snapshot.val();
+          console.log("checklist: ", data);
+        });
+      });*/
+    })
+  </script>
+
+    <script src="js/functionality.js"></script>
+</body>
+</html>

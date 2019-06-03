@@ -37,6 +37,13 @@ Budget: The budget page has been updated, the page looks much nicer and more ae
 Edit profile: The page has been edited so that the format makes more sense and is easier to use. The save button has been edited to be bigger and match the rest of the colors the website has.
 
 ## Other Tasks From Rubric
+5.  
+
+![Results Page](static_files/pics/milestone5/search2.png)
+![Home Page](static_files/pics/milestone5/home.png)
+
+How we visualized our data (data from Yelp and Firebase, respectively).
+
 
 6. To get the actual data, we used the Yelp API. In terms of visualizations, we
    just retrieved info from the API and formatted it into HTML elements (ie,

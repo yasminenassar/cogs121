@@ -19,25 +19,6 @@ body {
       background-color:#EEE2DC;
 }
 
-.jumbotron {
-	position: relative;
-	background: none;
-}
-
-.jumbotron:after {
-     content:"";
-     opacity: 0.2;
-     top: 0;
-     left: 0;
-     bottom: 0;
-     right: 0;
-     position: absolute;
-     z-index: -1;
-}
-
-.jumbotron p {
-     color: #6e6e6e;
-}
 
 .project a {
      text-align: center;
@@ -74,13 +55,7 @@ text-align:center;
   border-width: 100000px;
 }
 
-header{
-	width:100%;
-	background-color:#EAD1DCFF;
-	height:50px;
-	line-height:20px;
-	border-bottom:1px solid #dddddd;
-}
+
 
 /*nav{z-index:1000000; font-weight:bold; font-size:0.8em; width:100%; background:#f1f1f1;  position:absolute; text-align:center; font-size:12px;}
 nav ul {margin: 0; padding: 0; list-style-type: none; list-style-image: none;}

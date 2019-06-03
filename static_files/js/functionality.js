@@ -1,43 +1,12 @@
-/*$(document).ready(function() {
-    initializePage();
-      console.log("ARE U READY");
-      const curUser = localStorage.getItem('curUser');
-  console.log(curUser);
+/*
+ * This file contains most of the functions we use throughout our application.
+ * It does everything from displaying the main home page, to processing users'
+ * login information, and much more. Read the high level description above each
+ * function to get a gist of what it does.
+ */
 
-  const reqURL = 'users/' + curUser; 
-  console.log("requesting from", reqURL);
 
-  $.ajax({
-    url: reqURL,
-    type: 'GET',
-    dataType: 'json',
-    success: (data) => {
-      console.log('got some data ', data);
-      if(data.bride){
-         const coupleName = data.bride + ' & ' + data.groom;
-         const dateVenue = data.date + ' - ' + data.venue;
-         console.log(coupleName);
-         console.log(dateVenue);
-         // lol countdown??? 
-         const image = data.img;
-         console.log(image);
-         $('#names').html(coupleName);
-         $('#dateVenue').html(dateVenue);
-         $('#couple').attr('src', image).attr('width', '300px');
-      }
-      else{
-        console.log("boi this better not print");
-         $('#couple').attr('src', '');
-         $('#names').html("No couple found - log in!");
-         $('#dateVenue').html('');
-
-        // inputted user that doesn't exist??
-      }
-    }
-
-    });
-})*/
-
+// reads the URL for the image that the user selected
 function readURL() {
   const database = firebase.database();
   var fileupload = $("#FileUpload1");
@@ -74,11 +43,14 @@ function readURL() {
     });
 }
 
+// if the user isn't logged in, then reroute them to the login page
 function initializePage() {
   if(!localStorage.getItem('curUser') && location.href.includes("index.html")){
     location.replace('login.html');
   }
 }
+
+//if the user logs in with the wrong username or password, alert them
 function login() {
   const database = firebase.database();
   const user = document.getElementById("user").value;
@@ -102,42 +74,10 @@ function login() {
       });
     }
   });
- // location.replace("https://api.instagram.com/oauth/authorize/?client_id=d24f6b6b5992431fb90108cb528c5533&redirect_uri=http://localhost:3000&response_type=code");
-  //console.log(curUser);
-
 }
 
-function createAccount() {
-  console.log("creating an account");
-  //var user = document.getElementById("user").value;
-  //var pass = document.getElementById("pass").value;
-  location.replace("profile.html");
-}
 
-function searchFunc() {
-    console.log("IN HERERE");
-    var input, filter, ul, li, a, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    localStorage.setItem("filter" , filter);
-    ul = document.getElementById("myUL");
-    li = ul.getElementsByTagName("li");
-    
-    for (i = 0; i < li.length; i++) {
-        a = li[i].getElementsByTagName("a")[0];
-        txtValue = a.textContent || a.innerText;
-
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-        }
-        else
-        {
-            li[i].style.display = "none";
-        }
-  }
-
-}
-
+// queries to yelp for the filter requested
 function search(filter){
     const curUser = localStorage.getItem('curUser');
     console.log(curUser);
@@ -207,10 +147,10 @@ function search(filter){
     });
 }
 
+//signs the user out
 function signOut() {
   localStorage.removeItem('curUser');
 }
-
 
 
 var myNodelist = document.getElementsByTagName("LI");
@@ -233,7 +173,6 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
-//var list = document.querySelector('ul');
 var list = document.getElementById('myUL');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
@@ -270,6 +209,7 @@ list.addEventListener('click', function(ev) {
   }
 }, false);
 
+//create the checklist for the user when they first go on the checklist page
 function createChecklist() {
   const database = firebase.database();
   var list = document.getElementById("myUL");
@@ -332,6 +272,7 @@ function createChecklist() {
 
 }
 
+// create a new checklist element
 function newElement() {
       const user = localStorage.getItem('curUser');
     var li = document.createElement("li");
@@ -374,6 +315,7 @@ function newElement() {
 
 }
 
+//update the remaining cost on the budget page
 function updateRemaining(){
   const database = firebase.database();
   const user = localStorage.getItem('curUser');
@@ -425,6 +367,7 @@ function updateRemaining(){
       });
 }
 
+//creates a new budget element 
 function newBudgetElement() {
   var li = document.createElement("li");
   var vendorI = document.getElementById("vendorInput").value;
@@ -468,6 +411,7 @@ function newBudgetElement() {
 
 }
 
+//intiialize budget list
 function createBudget() {
   const database = firebase.database();
   var list = document.getElementById("budgetUL");

@@ -1,3 +1,5 @@
+/* Here, all the stling of the different components of the site are done. When there is a color change, alignment change, font change, spacing, or background change etc. it is all done in this file. */
+
 /* applies to anything of class "example-class-selector" */
 .example-class-selector {
 	margin-top: 2em;
@@ -89,6 +91,186 @@ nav ul li a:hover {  color: #666; text-decoration:none;}
 nav a{text-decoration:none; color:#666;}
 nav a:hover{text-decoration:none; color:#666;}*/
 
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#burger {
+	padding-left:0px;
+	padding-right:20px;
+}
+
+/*#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}*/
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.thumbnail{
+	border-color: lightGrey;
+}
+
+.hamburger{
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	padding: 0px 30px 0px 0px; /* Some padding */
+	font-size: 2.5em; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+.homeButton {
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	padding: 0px 30px 0px 0px; /* Some padding */
+	font-size: 2.5em; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+.title {
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	padding: 0px 0px 0px 0px; /* Some padding */
+	font-size: 2.5em; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+.postButton {
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	padding: 0px 0px 0px 0px; /* Some padding */
+	font-size: 2.5em; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+	float:right;
+}
+
+.infoButton {
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	font-size: 1.0em;
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+.info {
+	display: none;
+	font-size: 19px;
+	line-height: 22px;
+	color: black;
+}
+
+input[type='checkbox'] {
+  width:30px;
+  height:30px;
+  background:white;
+  border-radius:5px;
+  border:2px solid #555;
+	position:relative;
+	top: 6px;
+}
+
+#postSnack{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#postSnack.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#claimSnack{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#claimSnack.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#unclaimSnack{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#unclaimSnack.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
 #name{
 visibility: hidden;
 min-width: 250px;
@@ -134,7 +316,7 @@ font-size: 17px;
 .dropbtn {
   background-color: #EDC7B7;
   color: white;
-  padding: 20px;
+  padding: 30px;
   font-size: 16px;
   border: none;
 }
@@ -154,7 +336,7 @@ font-size: 17px;
 }
 
 .dropdown-content a {
-  color: white;
+  color: black;
   padding: 12px 16px;
   text-decoration: none;
 }
@@ -170,9 +352,10 @@ font-size: 17px;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
-  color: white;
   text-align: center;
 }
+
+/*Here, the tab that contains all the tabs to navigate the website is made to look the way that it is. The nav bar spans the page, and each tab is divided evenly across the tab. This also has the styling for the font, alignment, and color of the text on the tab. Below is the function for the hover on the tab. If your mouse goes over a category on the nav bar, that tab option will highlight.  */
 
 .tab a{
 float: left;
@@ -250,8 +433,9 @@ a{color:#336699;}
 	text-align: center;
 }
 
-.tab a:hover{
+ .tab a:hover{
   background-color: #E3D1C9;
+ /* background-color: #BF5E6B;*/
 }
 
  .tab a.active{
@@ -355,6 +539,7 @@ ul li.checked::before {
   float: left;
   font-size: 16px;
 }
+/*vendorInput and priceInput here contain the styling for the input  */
 
 #vendorInput {
   margin: 0;
@@ -462,17 +647,4 @@ position: absolute;
 
 #remain {
   font-style:italic;
-}
-.down {
-  transform: rotate(45deg);
-  color: white;
-  -webkit-transform: rotate(45deg);
-}
-
-i {
-  border: solid white;
-  color: white;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 3px;
 }

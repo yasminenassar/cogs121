@@ -334,8 +334,6 @@ function createChecklist() {
 
 function newElement() {
       const user = localStorage.getItem('curUser');
-      const totalBudgetRef = 'users/' + user + '/totalBudget';
-      var totalBudget;
     var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
   const database = firebase.database();
@@ -351,7 +349,6 @@ function newElement() {
                                      checked: "no"});
   });
 
-  console.log("jerllyfish");
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
@@ -373,17 +370,27 @@ function newElement() {
       div.style.display = "none";
     }
   }
-  //this code useless rn
+
+
+}
+
+function updateRemaining(){
+  const database = firebase.database();
+  const user = localStorage.getItem('curUser');
+  const totalBudgetRef = 'users/' + user + '/totalBudget';
+  var alreadySet = false; 
+    var allBudgets;
     database.ref(totalBudgetRef).once('value', (snapshot) => {
+        console.log("eat my butthole");
         totalBudget = snapshot.val();
-        const allBudgets = 'users/' + user + '/budget';
+        allBudgets = 'users/' + user + '/budget';
 
       }).then(() => {
         var remaining = parseInt(totalBudget);
-        database.ref(allBudgets).onUpdate('value', (snapshot) => {
+        database.ref(allBudgets).on('value', (snapshot) => {
           console.log("ON UPDATE!!!!!");
           const data = snapshot.val();
-          const length = Object.keys(data).length;
+          const length = (data == null) ? 0 : Object.keys(data).length;
           var i = 0;
           for(d in data){
             console.log("budgetTTTT:", d);
@@ -393,8 +400,8 @@ function newElement() {
               const curBudget = snapshot.val();
               remaining = remaining - parseInt(curBudget.price);
               console.log("i: ", i, "length: ", length);
-              if(i == length - 1){
-                console.log("REMAINING:", remaining);
+              if(i == length - 1 && !alreadySet){
+                console.log("REMAINING cuz i == length-1:", remaining);
                 const existingRemain = document.getElementById("remain");
                 if(existingRemain != null){
                   existingRemain.innerHTML = "";
@@ -403,14 +410,13 @@ function newElement() {
                 const remainText = document.createTextNode("Remaining Budget: " + remaining);
                 remainElem.appendChild(remainText);
                 existingRemain.append(remainElem);
-
+                alreadySet = true;
               }
               i++;
             });
           }
         });
       });
-
 }
 
 function newBudgetElement() {
@@ -419,6 +425,7 @@ function newBudgetElement() {
   var priceI = document.getElementById("priceInput").value;
   const database = firebase.database();
   const user = localStorage.getItem('curUser');
+  const totalBudgetRef = 'users/' + user + '/totalBudget';
   const userBudget = 'users/' + user + '/budget';
   console.log(userBudget);
   database.ref(userBudget).once('value', (snapshot) => {
@@ -449,6 +456,10 @@ function newBudgetElement() {
       div.style.display = "none";
     }
   }
+    
+    // update remaining budget right here
+    updateRemaining();
+
 }
 
 function createBudget() {
@@ -493,7 +504,9 @@ function createBudget() {
                   console.log(curItem);
                   if(text.includes(curItem.vendor)){
                     console.log("WE FOUND THE DATABASE PART");
+                    //also update the remaining budget
                     snapshot.ref.remove();
+                    updateRemaining();
                   }
               });
 

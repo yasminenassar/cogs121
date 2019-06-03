@@ -93,7 +93,57 @@
         }
       
         database.ref(userRef).update(dataToAdd);
-        location.replace("index.html");
+        const missing = [];
+        database.ref(userRef + "/brideName").once("value", snapshot => {
+          if (!snapshot.exists()){
+          console.log("r u here");
+            missing.push("bride's name");
+          }
+        });
+        database.ref(userRef + "/groomName").once("value", snapshot => {
+          if (!snapshot.exists()){
+          console.log("r u here");
+            missing.push("groom's name");
+          }
+        });
+        database.ref(userRef + "/totalBudget").once("value", snapshot => {
+          if (!snapshot.exists()){
+          console.log("r u here");
+            missing.push("your total budget");
+          }
+        });
+        database.ref(userRef + "/img").once("value", snapshot => {
+          if (!snapshot.exists()){
+          console.log("r u here");
+            missing.push("a picture of you and your future spouse");
+          }
+        });
+        database.ref(userRef + "/venue").once("value", snapshot => {
+          if (!snapshot.exists()){
+          console.log("r u here");
+            missing.push("the venue");
+          }
+        }).then(() => {
+        console.log("missing length:",missing.length);
+        if(missing.length > 0){
+          console.log("r u here > 0");
+          var alertStr = "You are still missing ";
+          for(var i = 0; i < missing.length; i++){
+            if(i == missing.length - 1){
+              alertStr += " and "; 
+            }
+            alertStr += missing[i];
+            if(i != missing.length - 1){
+              alertStr += ", ";
+            }
+
+          }
+          alert(alertStr + ". Please enter them and press save again.");
+          }
+        else{
+          location.replace("index.html");
+        }
+        });
       });
     })
   </script>

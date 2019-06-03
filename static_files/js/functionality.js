@@ -80,12 +80,31 @@ function initializePage() {
   }
 }
 function login() {
+  const database = firebase.database();
   const user = document.getElementById("user").value;
   const pass = document.getElementById("pass").value;
+  const userRef = "users/" + user;
+  database.ref(userRef).once("value", snapshot => {
+    //checks to see if user already exists
+    if(!snapshot.exists()){
+      alert("That username does not exist!");
+    }
+    else{
+      database.ref(userRef + "/password").once("value", snapshot => {
+        if(pass != snapshot.val()){
+          alert("Wrong password! Please try again.");
+        }
+        //password and username are correct here
+        else{
+          location.replace('/');
+          localStorage.setItem('curUser', user);
+        }
+      });
+    }
+  });
  // location.replace("https://api.instagram.com/oauth/authorize/?client_id=d24f6b6b5992431fb90108cb528c5533&redirect_uri=http://localhost:3000&response_type=code");
   //console.log(curUser);
-  location.replace('/');
-  localStorage.setItem('curUser', user);
+
 }
 
 function createAccount() {
@@ -314,10 +333,12 @@ function createChecklist() {
 }
 
 function newElement() {
-  var li = document.createElement("li");
+      const user = localStorage.getItem('curUser');
+      const totalBudgetRef = 'users/' + user + '/totalBudget';
+      var totalBudget;
+    var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
   const database = firebase.database();
-  const user = localStorage.getItem('curUser');
   const userChecks = 'users/' + user + '/checklist';
   console.log(userChecks);
   database.ref(userChecks).once('value', (snapshot) => {
@@ -352,6 +373,44 @@ function newElement() {
       div.style.display = "none";
     }
   }
+  //this code useless rn
+    database.ref(totalBudgetRef).once('value', (snapshot) => {
+        totalBudget = snapshot.val();
+        const allBudgets = 'users/' + user + '/budget';
+
+      }).then(() => {
+        var remaining = parseInt(totalBudget);
+        database.ref(allBudgets).onUpdate('value', (snapshot) => {
+          console.log("ON UPDATE!!!!!");
+          const data = snapshot.val();
+          const length = Object.keys(data).length;
+          var i = 0;
+          for(d in data){
+            console.log("budgetTTTT:", d);
+            const curBudget = allBudgets + '/' + d;
+            console.log("cur budget ref", curBudget);
+            database.ref(curBudget).once('value', (snapshot) => {
+              const curBudget = snapshot.val();
+              remaining = remaining - parseInt(curBudget.price);
+              console.log("i: ", i, "length: ", length);
+              if(i == length - 1){
+                console.log("REMAINING:", remaining);
+                const existingRemain = document.getElementById("remain");
+                if(existingRemain != null){
+                  existingRemain.innerHTML = "";
+                }
+                const remainElem = document.createElement('h2');
+                const remainText = document.createTextNode("Remaining Budget: " + remaining);
+                remainElem.appendChild(remainText);
+                existingRemain.append(remainElem);
+
+              }
+              i++;
+            });
+          }
+        });
+      });
+
 }
 
 function newBudgetElement() {

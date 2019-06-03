@@ -63,14 +63,28 @@
         console.log("creating account");
         const user = $("#user").val();
         const userRef = "users/" + user;
-        localStorage.setItem('curUser', user);
-        console.log(userRef);
-        const pass = $("#pass").val();
-        database.ref(userRef).set({password: pass, brideName: "", groomName: "",
-                                venue: "", dateOfWedding: "", totalBudget: "", 
-                                checkList: [], budget: []});
-        location.replace("profile.html");
-      });
+         database.ref(userRef).once("value", snapshot => {
+        //checks to see if user already exists
+          if(snapshot.exists()){
+            alert("This username is already taken! Please choose another.");
+          }
+          else{
+            localStorage.setItem('curUser', user);
+            console.log(userRef);
+            const pass = $("#pass").val();
+            if(pass == ""){
+            alert("Please enter a password");
+            }
+            else{
+              database.ref(userRef).set({password: pass,  
+                                     dateOfWedding: "", 
+                                     checkList: [], budget: []});
+              location.replace("profile.html");
+            }
+         }
+       });
+
+    });
     })
   </script>
   <!-- include JavaScript near the end of the HTML file -->

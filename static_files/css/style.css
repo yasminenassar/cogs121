@@ -429,9 +429,8 @@ a{color:#336699;}
 	text-align: center;
 }
 
- .tab a:hover{
+.tab a:hover{
   background-color: #E3D1C9;
- /* background-color: #BF5E6B;*/
 }
 
  .tab a.active{

@@ -17,30 +17,6 @@ body {
       background-color:#EEE2DC;
 }
 
-.jumbotron {
-	position: relative;
-	background: none;
-}
-
-.jumbotron:after {
-     content:"";
-     opacity: 0.2;
-     top: 0;
-     left: 0;
-     bottom: 0;
-     right: 0;
-     position: absolute;
-     z-index: -1;
-}
-
-.jumbotron p {
-     color: #6e6e6e;
-}
-
-.project a {
-     text-align: center;
-}
-
 .vendor_img {
   width: 300px;
   height: 350px;

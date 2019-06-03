@@ -183,19 +183,19 @@ function search(filter){
               var emptyP = document.createElement('p');
               //vendorDiv.className = 'vendor';
               vendorDiv.append(a);
+              vendorDiv.appendChild(document.createElement("br"));
+              vendorDiv.appendChild(document.createElement("br"));
               var priceP = document.createElement('p');
               var node;
               if(price){
                 node = document.createTextNode(price);
                 priceP.appendChild(node);
               }
-
-              vendorDiv.append(emptyP);
               vendorDiv.append(rateImg);
-              vendorDiv.append(emptyP);
               vendorDiv.append(priceP);
               vendorDiv.append(img);
               console.log(vendorDiv);
+              vendorDiv.setAttribute("style", "padding-top: 30px;");
               div.append(vendorDiv);
               div.append("<p> </p>");
             });

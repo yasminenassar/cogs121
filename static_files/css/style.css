@@ -17,25 +17,6 @@ body {
       background-color:#EEE2DC;
 }
 
-.jumbotron {
-	position: relative;
-	background: none;
-}
-
-.jumbotron:after {
-     content:"";
-     opacity: 0.2;
-     top: 0;
-     left: 0;
-     bottom: 0;
-     right: 0;
-     position: absolute;
-     z-index: -1;
-}
-
-.jumbotron p {
-     color: #6e6e6e;
-}
 
 .project a {
      text-align: center;
@@ -72,13 +53,7 @@ text-align:center;
   border-width: 100000px;
 }
 
-header{
-	width:100%;
-	background-color:#EAD1DCFF;
-	height:50px;
-	line-height:20px;
-	border-bottom:1px solid #dddddd;
-}
+
 
 /*nav{z-index:1000000; font-weight:bold; font-size:0.8em; width:100%; background:#f1f1f1;  position:absolute; text-align:center; font-size:12px;}
 nav ul {margin: 0; padding: 0; list-style-type: none; list-style-image: none;}
@@ -89,6 +64,186 @@ nav ul li a:hover {  color: #666; text-decoration:none;}
 nav a{text-decoration:none; color:#666;}
 nav a:hover{text-decoration:none; color:#666;}*/
 
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#burger {
+	padding-left:0px;
+	padding-right:20px;
+}
+
+/*#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}*/
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.thumbnail{
+	border-color: lightGrey;
+}
+
+.hamburger{
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	padding: 0px 30px 0px 0px; /* Some padding */
+	font-size: 2.5em; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+.homeButton {
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	padding: 0px 30px 0px 0px; /* Some padding */
+	font-size: 2.5em; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+.title {
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	padding: 0px 0px 0px 0px; /* Some padding */
+	font-size: 2.5em; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+.postButton {
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	padding: 0px 0px 0px 0px; /* Some padding */
+	font-size: 2.5em; /* Set a font size */
+	cursor: pointer; /* Mouse pointer on hover */
+	float:right;
+}
+
+.infoButton {
+	background-color: #ffffff00; /* Transparent background */
+	border: none; /* Remove borders */
+	color: black; /* Black */
+	font-size: 1.0em;
+	cursor: pointer; /* Mouse pointer on hover */
+}
+
+.info {
+	display: none;
+	font-size: 19px;
+	line-height: 22px;
+	color: black;
+}
+
+input[type='checkbox'] {
+  width:30px;
+  height:30px;
+  background:white;
+  border-radius:5px;
+  border:2px solid #555;
+	position:relative;
+	top: 6px;
+}
+
+#postSnack{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#postSnack.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#claimSnack{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#claimSnack.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#unclaimSnack{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#unclaimSnack.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
 #name{
 visibility: hidden;
 min-width: 250px;

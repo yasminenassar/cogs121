@@ -409,10 +409,10 @@ function updateRemaining(){
                 const remainElem = document.createElement('h2');
                 var remainText = document.createTextNode("Remaining Budget: " + remaining);
                 if(remaining <= 0){
-                  remainElem.setAttribute("style", "color: red; text-align: center;");
+                  remainElem.setAttribute("style", "color: red;");
                 }
                 else{
-                  remainElem.setAttribute("style", "color: green; text-align: center;");
+                  remainElem.setAttribute("style", "color: green;");
                 }
                 remainElem.appendChild(remainText);
                 existingRemain.append(remainElem);

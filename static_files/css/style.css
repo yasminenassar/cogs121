@@ -546,7 +546,7 @@ ul li.checked::before {
   font-size: 16px;
  position: absolute;
  left: 50%;
- top:47%;
+ top:40%;
  transform:translate(-50%, -50%);
 }
 
@@ -560,7 +560,7 @@ ul li.checked::before {
   font-size: 16px;
 position: absolute;
  left: 50%;
- top:40%;
+ top:47%;
  transform:translate(-50%, -50%);
 
 }

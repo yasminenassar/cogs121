@@ -82,12 +82,41 @@
         //displaying for user what their total budget is
         totalBudget = snapshot.val();
         const para = document.createElement('h2');
-        para.setAttribute("style", "text-align:center; color: #544c4c");
         const text = document.createTextNode("Total Budget: " + totalBudget);
         para.appendChild(text);
         $('#totalBudget').append(para);
         const allBudgets = 'users/' + user + '/budget';
-        updateRemaining();
+
+
+        var remaining = parseInt(totalBudget);
+        database.ref(allBudgets).once('value', (snapshot) => {
+          const data = snapshot.val();
+          const length = Object.keys(data).length;
+          var i = 0;
+          for(d in data){
+            console.log("budgetTTTT:", d);
+            const curBudget = allBudgets + '/' + d;
+            console.log("cur budget ref", curBudget);
+            database.ref(curBudget).once('value', (snapshot) => {
+              const curBudget = snapshot.val();
+              remaining = remaining - parseInt(curBudget.price);
+              console.log("i: ", i, "length: ", length);
+              if(i == length - 1){
+                console.log("REMAINING:", remaining);
+                const existingRemain = document.getElementById("remain");
+                if(existingRemain != null){
+                  existingRemain.innerHTML = "";
+                }
+                const remainElem = document.createElement('h2');
+                const remainText = document.createTextNode("Remaining Budget: " + remaining);
+                remainElem.appendChild(remainText);
+                existingRemain.append(remainElem);
+
+              }
+              i++;
+            });
+          }
+        });
       });
 
 

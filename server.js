@@ -1,10 +1,14 @@
+/*
+ * This file has all the server functionality, which allows us to make ajax
+ * calls in our other files, which allows us to call to the Yelp APi to search
+ * for makeup artists or photographers. 
+ */
 const express = require('express');
 const app = express();
 const yelp = require('yelp-fusion');
 const apiKey = 'grXAywzfZVFDEfkdmjZY5XtYdcI5EdV_FY8eCImCYPDB16BIIR3GJt55f7bTiqTXm3xFx1porLG7sQQHMRMt_yO_JoLk2oGprROCzBr0TOnotEW1WYTksKU4IaXYXHYx';
 const client = yelp.client(apiKey);
 const ig = require('instagram-node').instagram();
-//const axios = require('axios');
 
 // put all of your static files (e.g., HTML, CSS, JS, JPG) in the static_files/
 // sub-directory, and the server will serve them from there. e.g.,:
@@ -27,14 +31,6 @@ var accessToken = "";
 // that they become persistent, but this fake database will be reset when
 // this script restarts. however, as long as the script is running, this
 // database can be modified at will.
-const fakeDatabase = {
-  'chelsea@a.com': {img: 'pics/couple1.jpeg', bride: "Chelsea", groom: "Brad",
-                    venue: "San Francisco, CA", date: "October 12, 2019" },
-  'angie@a.com': {img: 'pics/couple2.jpeg', bride: "Angie", groom: "Derek",
-                    venue: "Chula Vista, CA", date: "August 16, 2019"},
-  'emily@a.com': {img: 'pics/couple3.jpeg', bride: "Emily", groom: "Mike",
-                    venue: "Atlanta, GA", date: "October 12, 2019" },
-};
 
 
 // To learn more about server routing:

@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.16.2",
+    "axios": "^0.19.0",
     "ejs": "^2.3.1",
     "express": "^4.16.3",
     "instagram-node": "^0.5.6",
